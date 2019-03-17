@@ -2,7 +2,7 @@
 #define CELL_H
 #include "product.h"
 
-class Cell{
+class Cell : Renderables{
 public:
     virtual void draw();
 };

@@ -2,11 +2,9 @@
 #ifndef __LIVINGTHINGS_H__
 #define __LIVINGTHINGS_H__
 
-class LivingThings {
+class LivingThings : public Renderables {
     public:
-  
-    private:
-
+        virtual void Move();
 };
 
 #endif 

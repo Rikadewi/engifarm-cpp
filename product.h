@@ -1,7 +1,9 @@
+#include "renderables.h"
+
 #ifndef PRODUCT_H
 #define PRODUCT_H
 
-class Product{
+class Product : public Renderables{
 protected:
     int harga;        
 };
