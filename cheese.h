@@ -10,8 +10,7 @@ class Cheese : public SideProduct{
 private:
     static int jumlah;
 public:
-    Cheese(CowMilk);
-    Cheese(PlatypusMilk);
+    Cheese();
     ~Cheese();
     static int getJumlah();
 };

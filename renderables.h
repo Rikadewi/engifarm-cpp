@@ -3,9 +3,13 @@
 #define __RENDERABLES_H__
 
 class Renderables {
-
+    public:
     //Method untuk merender suatu objek
-    virtual void render()=0; 
+    virtual char render()=0; 
+
+    protected:
+        int PosisiX;
+        int PosisiY;
 
 };
 #endif

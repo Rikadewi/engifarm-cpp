@@ -10,10 +10,10 @@ public:
 	ChickenKampung();
 	//prosedur Bersuara menuliskan suara ChickenKampung ke layar
 	void Bersuara();
-	static const bool isEgg();
-	static const bool isMilk();
-	static const bool isMeat();
-	void render();
+	// static const bool isEgg();
+	// static const bool isMilk();
+	// static const bool isMeat();
+	char render();
 };
 
 #endif

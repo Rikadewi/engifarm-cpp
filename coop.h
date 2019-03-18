@@ -6,7 +6,7 @@
 
 class Coop : public Land{
 public:
-    void render();
+    char render();
 };
 
 #endif

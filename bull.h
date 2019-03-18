@@ -10,10 +10,10 @@ public:
 	Bull();
 	//prosedur Bersuara menuliskan suara Bull ke layar
 	void Bersuara();
-	static const bool isEgg();
+	/*static const bool isEgg();
 	static const bool isMilk();
-	static const bool isMeat();
-	void render();
+	static const bool isMeat();*/
+	char render();
 };
 
 #endif

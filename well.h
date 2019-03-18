@@ -6,7 +6,7 @@
 
 class Well : public Facility{
 public:
-    void render();
+    char render();
     void fillWater();
 };
 

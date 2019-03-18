@@ -10,8 +10,7 @@ class Steak : public SideProduct{
 private:
     static int jumlah;
 public:
-    Steak(CowMeat);
-    Steak(ChickenMeat);
+    Steak();
     ~Steak();
     static int getJumlah();
 };

@@ -6,7 +6,8 @@
 
 class Truck : public Facility{
 public:
-    void render();
-
+    char render();
+private:
+    int tick;
 };
 #endif

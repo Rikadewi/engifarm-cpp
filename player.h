@@ -14,7 +14,7 @@ class Player: public LivingThings {
         void interact();
         void kill();
         void grow();
-        void render();
+        char render();
 };
 
 #endif 
