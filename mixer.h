@@ -14,12 +14,9 @@
 class Mixer : public Facility{
 public:
     char render();
-    SideProduct mix(ChickenEgg);
-    SideProduct mix(PlatypusEgg);
-    SideProduct mix(ChickenMeat);
-    SideProduct mix(CowMeat);
-    SideProduct mix(CowMilk);
-    SideProduct mix(PlatypusMilk);
+    SideProduct mix(ChickenEgg, CowMeat);
+    SideProduct mix(PlatypusEgg, CowMilk);
+    SideProduct mix(ChickenMeat, PlatypusMilk);
 };
 
 #endif

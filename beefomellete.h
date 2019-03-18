@@ -1,17 +1,17 @@
-//File : cheese.h
-#ifndef cheese_H
-#define cheese_H
+//File : beefomellete.h
+#ifndef beefomellete_H
+#define beefomellete_H
 
 #include "sideproduct.h"
 #include "cowmilk.h"
 #include "platypusmilk.h"
 
-class Cheese : public SideProduct{
+class BeefOmellete : public SideProduct{
 private:
     static int jumlah;
 public:
-    Cheese();
-    ~Cheese();
+    BeefOmellete();
+    ~BeefOmellete();
     static int getJumlah();
 };
 

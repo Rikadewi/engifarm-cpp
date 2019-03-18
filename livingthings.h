@@ -7,6 +7,9 @@
 class LivingThings : public Renderables {
     public:
         virtual void Move();
+    protected:
+      List <char> lookAround;
+
 };
 
-#endif 
+#endif

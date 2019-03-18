@@ -5,11 +5,11 @@
 #include "product.h"
 
 class Player: public LivingThings {
-    public:
+    private:
         int water;
         List <Product> inventory;
         long money;
-    private:
+    public:
         void talk();
         void interact();
         void kill();
@@ -17,4 +17,4 @@ class Player: public LivingThings {
         char render();
 };
 
-#endif 
+#endif

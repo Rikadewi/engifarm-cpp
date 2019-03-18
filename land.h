@@ -5,6 +5,8 @@
 #include "cell.h"
 
 class Land : public Cell {
+protected:
+  bool isRumput;
 };
 
 #endif

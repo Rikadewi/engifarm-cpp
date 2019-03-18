@@ -1,17 +1,17 @@
-//File : steak.h
-#ifndef steak_H
-#define steak_H
+//File : plachicksoup.h
+#ifndef plachicksoup_H
+#define plachicksoup_H
 
 #include "sideproduct.h"
 #include "cowmeat.h"
 #include "chickenmeat.h"
 
-class Steak : public SideProduct{
+class PlachickSoup : public SideProduct{
 private:
     static int jumlah;
 public:
-    Steak();
-    ~Steak();
+    PlachickSoup();
+    ~PlachickSoup();
     static int getJumlah();
 };
 

@@ -7,6 +7,7 @@
 class Truck : public Facility{
 public:
     char render();
+    bool isAvailable();
 private:
     int tick;
 };
