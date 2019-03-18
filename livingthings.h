@@ -1,4 +1,4 @@
-// livingthings.h
+//File: livingthings.h
 #ifndef __LIVINGTHINGS_H__
 #define __LIVINGTHINGS_H__
 

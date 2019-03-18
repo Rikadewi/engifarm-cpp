@@ -1,7 +1,8 @@
-// player.h
+//File: player.h
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 #include "livingthings.h"
+#include "product.h"
 
 class Player: public LivingThings {
     public:
@@ -13,6 +14,7 @@ class Player: public LivingThings {
         void interact();
         void kill();
         void grow();
+        void render();
 };
 
 #endif 
