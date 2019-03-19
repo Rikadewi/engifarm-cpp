@@ -12,6 +12,7 @@ protected:
 	bool meat; //menandakan jenis hewan penghasil daging
 	int living_time; //variabel penanda tick yang dimiliki sebelum hewan mati kelaparan
 	bool hasProduct; // Animal sudah siap untuk product atau belum
+	static int jumlah;
 public:
 	//konstruktor FarmAnimal, mengeset hungry dan hasProduct menjadi false, living_time mejadi default
 	FarmAnimal();
@@ -28,6 +29,7 @@ public:
 	bool isEgg();
 	bool isMilk();
 	bool isMeat();
+	static int getJumlah();
 };
 
 #endif

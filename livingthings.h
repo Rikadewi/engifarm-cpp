@@ -2,6 +2,7 @@
 #ifndef __LIVINGTHINGS_H__
 #define __LIVINGTHINGS_H__
 
+#include "list.h"
 #include "renderables.h"
 
 class LivingThings : public Renderables {
