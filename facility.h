@@ -4,6 +4,7 @@
 
 #include "cell.h"
 
+//facility merupakan turunan dari cell
 class Facility : public Cell{
 };
 

@@ -8,11 +8,11 @@
 
 class BeefOmellete : public SideProduct{
 private:
-    static int jumlah;
+    static int jumlah; //jumlah beef omellete
 public:
-    BeefOmellete();
-    ~BeefOmellete();
-    static int getJumlah();
+    BeefOmellete(); //ctor beef omellete : untuk menambah jumlah beef omellete, menetapkan harga beef omellete
+    ~BeefOmellete(); //dtor beef omellete : untuk mengurangi jumlah beef omellete
+    static int getJumlah(); //mendapatkan jumlah beef omellete
 };
 
 #endif

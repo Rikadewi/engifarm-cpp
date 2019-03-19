@@ -6,11 +6,11 @@
 
 class ChickenMeat : public FarmProduct{
 private:
-    static int jumlah;
+    static int jumlah; //jumlah chicken meat 
 public:
-    ChickenMeat();
-    ~ChickenMeat();
-    static int getJumlah();
+    ChickenMeat(); //ctor chicken meat : untuk menambah jumlah chicken meat, menetapkan harga chicken meat
+    ~ChickenMeat(); //dtor chicken meat : untuk mengurangi jumlah chicken meat
+    static int getJumlah(); //mendapatkan jumlah chicken meat
 };
 
 #endif

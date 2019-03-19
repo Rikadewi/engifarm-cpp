@@ -4,9 +4,10 @@
 
 #include "land.h"
 
+//barn merupakan turunan dari land
 class Barn : public Land{
 public:
-    char render();
+    char render();  //mengembalikan char yang akan diprint
 };
 
 #endif

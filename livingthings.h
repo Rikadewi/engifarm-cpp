@@ -4,13 +4,13 @@
 
 #include "list.h"
 #include "renderables.h"
+#include "list.h"
 
 class LivingThings : public Renderables {
     public:
         virtual void Move();
     protected:
-      List <char> lookAround;
-
+        List <char> lookAround;
 };
 
 #endif

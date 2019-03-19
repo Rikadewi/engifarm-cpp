@@ -4,9 +4,10 @@
 
 #include "land.h"
 
+//coop merupakan turunan dari kelas land
 class Coop : public Land{
 public:
-    char render();
+    char render();  //mengembalikan char yang akan diprint
 };
 
 #endif

@@ -6,11 +6,11 @@
 
 class ChickenEgg : public FarmProduct{
 private:
-    static int jumlah;
+    static int jumlah; //jumlah chicken egg 
 public:
-    ChickenEgg();
-    ~ChickenEgg();
-    static int getJumlah();
+    ChickenEgg(); //ctor chicken egg : untuk menambah jumlah chicken egg, menetapkan harga chicken egg
+    ~ChickenEgg(); //dtor chicken egg : untuk mengurangi jumlah chicken egg
+    static int getJumlah(); //mendapatkan jumlah chicken egg
 };
 
 #endif
