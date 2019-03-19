@@ -11,7 +11,7 @@ class Truck : public Facility{
 public:
     char render(); //mengembalikan char yang akan diprint pada map
     bool isAvailable(); //mengembalikan true jika truck bisa dipakai
-    void updateTick(); //untuk mengset tick
+    void updateTick(); //untuk mengupdate tick
 private:
     int tick; //melambangkan seberapa lama lagi hingga truck bisa dipakai
 };

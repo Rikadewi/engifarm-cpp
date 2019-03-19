@@ -5,7 +5,7 @@
 #include "product.h"
 #include "list.h"
 
-class Player: public LivingThings {
+class Player : public LivingThings {
     private:
         int water;
         List <Product> inventory;

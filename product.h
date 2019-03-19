@@ -9,5 +9,7 @@
 class Product : public Renderables{
 protected:
     int harga; //harga dari setiap produk
+public:
+    int getHarga(); //getter
 };
 #endif
