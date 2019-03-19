@@ -13,6 +13,8 @@ protected:
 	int living_time; //variabel penanda tick yang dimiliki sebelum hewan mati kelaparan
 	bool hasProduct; // Animal sudah siap untuk product atau belum
 public:
+	//konstruktor FarmAnimal, mengeset hungry dan hasProduct menjadi false, living_time mejadi default
+	FarmAnimal();
 	//prosedur makan mengembalikan living_time menjadi default
 	void makan();
 	//prosedur update dipanggil setiap tick
