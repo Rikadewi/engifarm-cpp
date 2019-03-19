@@ -9,7 +9,7 @@ public:
 	//konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 	Cow();
 	//prosedur Bersuara menuliskan suara Cow ke layar
-	void Bersuara();
+	void bersuara();
 	// static const bool isEgg();
 	// static const bool isMilk();
 	// static const bool isMeat();

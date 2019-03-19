@@ -24,7 +24,7 @@ public:
 	//fungsi boolean isHungry mengembalikan true jika atribut hungry bernilai true
 	bool isHungry();
 	//deklarasi fungsi pure virtual
-	virtual void Bersuara() = 0;
+	virtual void bersuara() = 0;
 	bool isEgg();
 	bool isMilk();
 	bool isMeat();

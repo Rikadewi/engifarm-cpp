@@ -9,7 +9,7 @@ public:
 	//konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 	GoldenPlatypus();
 	//prosedur Bersuara menuliskan suara GoldenPlatypus ke layar
-	void Bersuara();
+	void bersuara();
 	// static const bool isEgg();
 	// static const bool isMilk();
 	// static const bool isMeat();
