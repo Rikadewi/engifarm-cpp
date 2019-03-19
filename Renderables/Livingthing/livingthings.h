@@ -2,7 +2,7 @@
 #ifndef __LIVINGTHINGS_H__
 #define __LIVINGTHINGS_H__
 
-#include "renderables.h"
+#include "../renderables.h"
 
 class LivingThings : public Renderables {
     public:

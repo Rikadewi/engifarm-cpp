@@ -1,7 +1,7 @@
 //File : cell.h
 #ifndef CELL_H
 #define CELL_H
-#include "renderables.h"
+#include "../renderables.h"
 
 class Cell : public Renderables{
 public:
