@@ -14,8 +14,10 @@ protected:
 	bool hasProduct; // Animal sudah siap untuk product atau belum
 	static int jumlah;
 public:
-	//konstruktor FarmAnimal, mengeset hungry dan hasProduct menjadi false, living_time mejadi default
+	//konstruktor FarmAnimal, mengeset hungry dan hasProduct menjadi false, living_time mejadi default, menambah static int jumlah
 	FarmAnimal();
+	//destruktor FarmAnimal, mengurangi statis int jumlah
+	~FarmAnimal();
 	//prosedur makan mengembalikan living_time menjadi default
 	void makan();
 	//prosedur update dipanggil setiap tick
