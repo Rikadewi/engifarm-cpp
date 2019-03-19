@@ -2,7 +2,7 @@
 #ifndef farmproduct_H
 #define farmproduct_H
 
-#include "../product.h"
+#include "../../Product/product.h"
 
 class FarmProduct : public Product{
 };

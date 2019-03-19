@@ -2,7 +2,7 @@
 #ifndef facility_H
 #define facility_H
 
-#include "../cell.h"
+#include "cell.h"
 
 class Facility : public Cell{
 };
