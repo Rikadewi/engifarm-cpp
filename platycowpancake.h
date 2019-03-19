@@ -3,13 +3,15 @@
 #define platycowpancake_H
 
 #include "sideproduct.h"
+
+//platycow pancake merupakan turunan dari sideproduct
 class PlatycowPancake : public SideProduct{
 private:
-    static int jumlah;
+    static int jumlah; //jumlah platycow pancake
 public:
-    PlatycowPancake();
-    ~PlatycowPancake();
-    static int getJumlah();
+    PlatycowPancake(); //ctor platycow pancake : untuk menambah jumlah platycow pancake, menetapkan harga platycow pancake
+    ~PlatycowPancake(); //dtor platycow pancake : untuk mengurangi jumlah platycow pancake
+    static int getJumlah(); //mendapatkan jumlah platycow pancake
 };
 
 #endif

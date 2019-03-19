@@ -3,9 +3,8 @@
 #define CELL_H
 #include "renderables.h"
 
+//cell merupakan turunan dari renderables
 class Cell : public Renderables{
-public:
-    //virtual void draw();
 };
 
 #endif

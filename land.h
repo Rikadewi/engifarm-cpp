@@ -6,7 +6,11 @@
 
 class Land : public Cell {
 protected:
-  bool isRumput;
+  bool isRumput; 
+public:
+  char render();  //mengembalikan char yang akan diprint
+  Land(); //set isRumput = false
+  void setRumput(); //set isRumput menjadi true jika merupakan grassland, false ketika dimakan animal
 };
 
 #endif

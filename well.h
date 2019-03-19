@@ -4,10 +4,11 @@
 
 #include "facility.h"
 
+//Well merupakan turunan dari Facility
 class Well : public Facility{
 public:
-    char render();
-    void fillWater();
+    char render(); //mengembalikan char yang akan diprint
+    void fillWater(); //mengisi air pada ember
 };
 
 #endif

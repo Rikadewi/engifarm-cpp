@@ -4,6 +4,7 @@
 
 #include "product.h"
 
+//sideproduct merupakan turunan dari product
 class SideProduct : public Product{
 };
 
