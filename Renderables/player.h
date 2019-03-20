@@ -3,7 +3,7 @@
 #define __PLAYER_H__
 #include "livingthings.h"
 #include "product.h"
-#include "list.h"
+#include "../list.h"
 
 class Player : public LivingThings {
     private:

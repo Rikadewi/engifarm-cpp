@@ -1,5 +1,7 @@
 template <class Type>
 class List {
+    private:
+        Type *data;
     public:
         //ctor-cctor-dtor
         List(); //default Ctor
