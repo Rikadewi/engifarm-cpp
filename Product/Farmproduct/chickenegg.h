@@ -7,6 +7,7 @@
 class ChickenEgg : public FarmProduct{
 private:
     static int jumlah;
+    
 public:
     ChickenEgg();
     ~ChickenEgg();
