@@ -3,6 +3,10 @@
 #define FARMANIMAL_H
 
 #include "livingthings.h"
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
 
 class FarmAnimal : public LivingThings {
 protected:
@@ -28,6 +32,8 @@ public:
 	bool isHungry();
 	//deklarasi fungsi pure virtual
 	virtual void bersuara() = 0;
+	//prosedur move animal
+	void Move();
 	bool isEgg();
 	bool isMilk();
 	bool isMeat();

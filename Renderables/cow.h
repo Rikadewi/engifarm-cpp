@@ -10,9 +10,6 @@ public:
 	Cow();
 	//prosedur Bersuara menuliskan suara Cow ke layar
 	void bersuara();
-	// static const bool isEgg();
-	// static const bool isMilk();
-	// static const bool isMeat();
 	char render();
 };
 
