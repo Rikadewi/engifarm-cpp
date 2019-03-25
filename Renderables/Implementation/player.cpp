@@ -6,21 +6,38 @@ Player::Player() : water(DEFWATER), money(DEFMONEY){
 }
 
 void Player::move(){
-    List<char> around = lookAround();
-    int idx = around.find(charLand);
-    if(idx == -1){
-        idx = around.find(charLandBerumput);
+    List<int> around = lookAround();
+    bool found = false;
+    int i = 0;
+    while ((!found) && (i<4)){
+        if(isLand(around.get(i))){
+            found = true;
+        }else{
+            i++;
+        }
     }
-    if(idx == -1){
-        throw "Tidak ada space";
+    if(!found){
+        throw "Tidak ada Space";
     }else{
-        setY(idx%COL);
-        setX(idx/COL);
+        //problem dlm 1 petak ada land ada living things
+        if(i == 0){
+            setY(getY()-1);
+        }
+        if(i == 1){
+            setX(getX()+1);
+        }
+        if(i == 2){
+            setY(getY()+1);
+        }
+        if(i == 3){
+            setX(getX()-1);
+        }
+        
     }
 }
 
 void Player::talk(){
-
+    
 }
 
 void Player::interact(){
