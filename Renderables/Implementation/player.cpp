@@ -18,3 +18,23 @@ void Player::move(){
         setX(idx/COL);
     }
 }
+
+void Player::talk(){
+
+}
+
+void Player::interact(){
+    
+}
+
+void Player::kill(){
+
+}
+
+void Player::grow(){
+
+}
+
+char Player::render(){
+    return 'P';
+}

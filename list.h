@@ -1,3 +1,7 @@
+//File: list.h
+#ifndef __LIST_H__
+#define __LIST_H__
+
 template <class Type>
 class List {
     private:
@@ -15,7 +19,9 @@ class List {
         bool isFull() const;
         void add(Type);
         void remove(Type elmt);
-        int find(Type elmt);
+        int find(Type elmt); //jika tidak ditermukan kembalikan -1
         Type get(int indeks);
 
-}
+};
+
+#endif

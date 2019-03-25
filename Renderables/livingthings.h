@@ -2,15 +2,14 @@
 #ifndef __LIVINGTHINGS_H__
 #define __LIVINGTHINGS_H__
 
-#include "list.h"
+#include "../list.h"
 #include "renderables.h"
-#include "list.h"
 
 class LivingThings : public Renderables {
     public:
         virtual void Move();
     protected:
-        List <char> lookAround;
+        List <char> lookAround(); //diubah jadi method
 };
 
 #endif

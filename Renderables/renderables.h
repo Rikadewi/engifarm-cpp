@@ -4,14 +4,14 @@
 
 class Renderables {
     public:
-    //Method untuk merender suatu objek
-    virtual char render()=0;
-    //setter
-    void setX(int X);
-    void setY(int Y);
-    //getter 
-    int getX();
-    int getY();
+        //Method untuk merender suatu objek
+        virtual char render()=0;
+        //setter
+        void setX(int X);
+        void setY(int Y);
+        //getter 
+        int getX();
+        int getY();
 
     protected:
         int PosisiX;
