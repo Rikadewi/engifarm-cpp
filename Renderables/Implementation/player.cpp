@@ -125,9 +125,10 @@ void Player::kill(){
 }
 
 void Player::grow(){
-    
+    //matriks[getX()][getY()].setRumput();
+    water--;
 }
 
-char Player::render(){
+char Player::render(){weh
     return 'P';
 }
