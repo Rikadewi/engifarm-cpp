@@ -11,10 +11,6 @@
 #define MAXBAG 10
 
 //hapus ntar, untuk kepentingan development
-#define charLand 'L'
-#define charLandBerumput 'R'
-#define charBarn ''
-#define COL 10
 
 class Player : public LivingThings {
     private:
@@ -24,11 +20,11 @@ class Player : public LivingThings {
     public:
         Player(); //ctor
         void move(); //berpindah ke cell yang bertipe land, throw "Tidak ada space" jika di sekeliling player tidak ada land
-        void talk(); //throwing
-        void interact();
-        void kill();
+        void talk(); //berbicara dengan hewan, throw "Tidak ada hewan" jika tidak ditemukan hewan di sekeliling player
+        void interact(); //interact dengan facility atau egg dan milk producing animal, throw "Tidak bisa interact" jika gagal
+        void kill(); //membunuh meat producing animal, throw "Tidak ada hewan untuk dibunuh" jika gagal
         void grow();
         char render();
 };
 
-#endif0
+#endif

@@ -9,7 +9,7 @@
 using namespace std;
 
 class FarmAnimal : public LivingThings {
-protected:
+protected://knpa nda private?
 	bool hungry; //variabel penanda bahwa hewan lapar
 	bool egg; //menandakan jenis hewan penghasil telur
 	bool milk; //menandakan jenis hewan penghasil susu

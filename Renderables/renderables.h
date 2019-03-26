@@ -7,13 +7,13 @@ class Renderables {
         //Method untuk merender suatu objek
         virtual char render()=0;
         //setter
-        void setX(int X);
-        void setY(int Y);
+        void setX(int X);//jgn lupa ganti matriks di main
+        void setY(int Y); //jgn lupa ganti matriks di main
         //getter 
         int getX();
         int getY();
 
-    protected:
+    protected: //knpa ini nggk private aja?
         int PosisiX;
         int PosisiY;
 
