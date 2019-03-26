@@ -1,7 +1,7 @@
 //File: player.cpp
 #include "../player.h"
 
-void cekPosisi (int i, int& x, int& y){
+void Player::cekPosisi (int i, int& x, int& y){
     if(i == 0){
         y = getY()-1;
         x = getX();
