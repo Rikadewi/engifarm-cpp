@@ -3,15 +3,15 @@
 #define chickenjago_H
 
 #include "farmanimal.h"
+#include "chickenmeat.h"
+
 class ChickenJago : public FarmAnimal{
 public:
 	//konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 	ChickenJago();
 	//prosedur Bersuara menuliskan suara ChickenJago ke layar
 	void bersuara();
-	// static const bool isEgg();
-	// static const bool isMilk();
-	// static const bool isMeat();
+	FarmProduct kill();
 	char render();
 };
 

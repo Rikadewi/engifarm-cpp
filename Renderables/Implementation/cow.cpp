@@ -10,7 +10,21 @@ Cow::Cow(){
 void Cow::bersuara(){
 	cout << "Moooo..." << endl;
 }
-
+FarmProduct Cow::getProduct(){
+	if (hasProduct)
+	{
+		hasProduct = false;
+		CowMilk milk;
+		return milk;
+	}
+	else{
+		throw "Sapi ini tidak mempunyai produk saat ini";
+	}
+}
+FarmProduct Cow::kill(){
+	CowMeat meat;
+	return meat;
+}
 char Cow::render(){
 	return 'C';
 }

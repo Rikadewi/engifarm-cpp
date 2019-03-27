@@ -1,3 +1,5 @@
+#include "bull.h"
+
 //konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 Bull::Bull(){
 	FarmAnimal::egg = false;
@@ -8,7 +10,10 @@ Bull::Bull(){
 void Bull::bersuara(){
 	cout << "(Manly) Moooo..." << endl;
 }
-
+FarmProduct Bull::kill(){
+	CowMeat meat;
+	return meat;
+}
 char Bull::render(){
 	return 'B';
 }

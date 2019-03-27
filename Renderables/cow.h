@@ -3,6 +3,8 @@
 #define cow_H
 
 #include "farmanimal.h"
+#include "cowmilk.h"
+#include "cowmeat.h"
 
 class Cow : public FarmAnimal{
 public:
@@ -10,6 +12,8 @@ public:
 	Cow();
 	//prosedur Bersuara menuliskan suara Cow ke layar
 	void bersuara();
+	FarmProduct getProduct();
+	FarmProduct kill();
 	char render();
 };
 

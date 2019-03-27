@@ -3,6 +3,9 @@
 #define platypus_H
 
 #include "farmanimal.h"
+#include "farmproduct.h"
+#include "platypusegg.h"
+#include "platypusmilk.h"
 
 class Platypus : public FarmAnimal{
 public:
@@ -10,9 +13,7 @@ public:
 	Platypus();
 	//prosedur Bersuara menuliskan suara Platypus ke layar
 	void bersuara();
-	// static const bool isEgg();
-	// static const bool isMilk();
-	// static const bool isMeat();
+	FarmProduct getProduct();
 	char render();
 };
 

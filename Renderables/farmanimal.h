@@ -3,7 +3,7 @@
 #define FARMANIMAL_H
 
 #include "livingthings.h"
-#include "Product"
+#include "farmproduct.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -34,11 +34,11 @@ public:
 	//deklarasi fungsi pure virtual
 	virtual void bersuara() = 0;
 	//prosedur move animal
+	bool is_safe_to_move(int);
 	void Move();
 	bool isEgg();
 	bool isMilk();
 	bool isMeat();
-	virtual SideProduct getProduct() = 0; //buat interct sama milk dan egg producing animal
 	static int getJumlah();
 };
 

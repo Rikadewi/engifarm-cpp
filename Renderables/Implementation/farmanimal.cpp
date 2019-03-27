@@ -24,8 +24,9 @@ void FarmAnimal::makan(){
 void FarmAnimal::update(){
 	if (hungry){
 		living_time--;
-		if (living_time == 0)
+		if (living_time == 0){
 			delete this;
+		}
 		else
 			Move();
 	}
@@ -38,20 +39,38 @@ void FarmAnimal::makeHungry(){
 bool FarmAnimal::isHungry(){
 	return hungry;
 }
+bool FarmAnimal::is_safe_to_move(int x){
+	List <int> around = LivingThings::lookAround();
+	if ((around.get(x)<=12)||(around.get(x)>=19)){
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+	
+}
 void FarmAnimal::Move(){
-	List <char> around = LivingThings::lookAround();
-	int direction = rand() % 5;
-	switch (direction){
-		case 0:
-			break;
-		case 1:
-			break;
-		case 2:
-			break;
-		case 3:
-			break;
-		default:
-			break;
+	int direction = rand() % 4;
+	if (is_safe_to_move(direction)){
+		switch (direction){
+			case 0: //utara
+				int y = Renderables::getY();
+				Renderables::setY(y-1);
+				break;
+			case 1: //timur
+				int x = Renderables::getX();
+				Renderables::setX(x+1);
+				break;
+			case 2: //selatan
+				int y = Renderables::getY();
+				Renderables::setY(y+1);
+				break;
+			case 3: //barat
+				int x = Renderables::getX();
+				Renderables::setX(x-1);
+				break;
+		}
 	}
 }
 

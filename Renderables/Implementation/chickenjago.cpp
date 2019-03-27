@@ -10,6 +10,10 @@ ChickenJago::ChickenJago(){
 void ChickenJago::bersuara(){
 	cout << "kukuruyuuuuuk" << endl;
 }
+FarmProduct ChickenJago::kill(){
+	ChickenMeat meat;
+	return meat;
+}
 char ChickenJago::render(){
 	return 'J';
 }
