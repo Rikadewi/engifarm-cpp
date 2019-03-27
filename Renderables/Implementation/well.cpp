@@ -1,4 +1,4 @@
-#include "well.h"
+#include "../well.h"
 
 char Well::render(){
 

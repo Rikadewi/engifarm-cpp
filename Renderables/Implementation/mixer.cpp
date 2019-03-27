@@ -1,4 +1,4 @@
-#include "mixer.h"
+#include "../mixer.h"
 #include "../Product/beefomellete.h"
 #include "../Product/platycowpancake.h"
 #include "../Product/plachicksoup.h"

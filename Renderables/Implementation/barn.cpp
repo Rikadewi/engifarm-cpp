@@ -1,4 +1,4 @@
-#include "barn.h"
+#include "../barn.h"
 
 char Barn::render(){
     

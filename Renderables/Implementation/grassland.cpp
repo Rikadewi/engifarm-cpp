@@ -1,4 +1,4 @@
-#include "grassland.h"
+#include "../grassland.h"
 
 GrassLand::GrassLand(){
     isRumput=true;

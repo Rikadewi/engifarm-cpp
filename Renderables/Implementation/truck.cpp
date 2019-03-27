@@ -1,4 +1,4 @@
-#include "truck.h"
+#include "../truck.h"
 
 char Truck::render(){
 

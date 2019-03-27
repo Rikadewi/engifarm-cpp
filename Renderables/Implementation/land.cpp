@@ -1,4 +1,4 @@
-#include "land.h"
+#include "../land.h"
 
 Land::Land(){
     isRumput = false;

@@ -6,6 +6,7 @@
 
 class GrassLand : public Land{
 public:
+    GrassLand();
     char render();  //mengembalikan char yang akan diprint
 };
 #endif

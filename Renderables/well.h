@@ -8,7 +8,7 @@
 class Well : public Facility{
 public:
     char render(); //mengembalikan char yang akan diprint
-    void fillWater(); //mengisi air pada ember
+    // void fillWater(); //mengisi air pada ember
 };
 
 #endif

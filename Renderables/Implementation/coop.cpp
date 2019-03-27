@@ -1,4 +1,4 @@
-#include "coop.h"
+#include "../coop.h"
 
 char Coop::render(){
     
