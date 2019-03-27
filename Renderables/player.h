@@ -25,6 +25,7 @@ class Player : public LivingThings {
         void kill(); //membunuh meat producing animal, throw "Tidak ada hewan untuk dibunuh" jika gagal
         void grow();
         char render();
+        void cekPosisi(int, int&, int&); //buat cek sekitar look around, mungkin bs ditaruh di kelas lbh atas kalo dibutuhkan
 };
 
 #endif

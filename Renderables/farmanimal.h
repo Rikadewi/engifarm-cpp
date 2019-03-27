@@ -3,6 +3,7 @@
 #define FARMANIMAL_H
 
 #include "livingthings.h"
+#include "Product"
 #include <iostream>
 #include <cstdlib>
 
@@ -37,6 +38,7 @@ public:
 	bool isEgg();
 	bool isMilk();
 	bool isMeat();
+	virtual SideProduct getProduct() = 0; //buat interct sama milk dan egg producing animal
 	static int getJumlah();
 };
 
