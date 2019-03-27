@@ -27,6 +27,6 @@ FarmProduct GoldenPlatypus::getProduct(){
 		throw "Platypus ini tidak mempunyai produk saat ini";
 	}
 }
-char GoldenPlatypus::render(){
-	return 'G';
+int GoldenPlatypus::render(){
+	//return 'G';
 }

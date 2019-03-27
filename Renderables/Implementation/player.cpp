@@ -129,6 +129,6 @@ void Player::grow(){
     water--;
 }
 
-char Player::render(){
-    return 'P';
+int Player::render(){
+    //return 'P';
 }

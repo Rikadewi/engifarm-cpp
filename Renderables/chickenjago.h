@@ -12,7 +12,7 @@ public:
 	//prosedur Bersuara menuliskan suara ChickenJago ke layar
 	void bersuara();
 	FarmProduct kill();
-	char render();
+	int render();
 };
 
 #endif

@@ -25,6 +25,6 @@ FarmProduct Cow::kill(){
 	CowMeat meat;
 	return meat;
 }
-char Cow::render(){
-	return 'C';
+int Cow::render(){
+	//return 'C';
 }

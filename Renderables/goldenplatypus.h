@@ -14,7 +14,7 @@ public:
 	//prosedur Bersuara menuliskan suara GoldenPlatypus ke layar
 	void bersuara();
 	FarmProduct getProduct();
-	char render()
+	int render()
 	;
 };
 

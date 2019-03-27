@@ -14,7 +14,7 @@ public:
 	void bersuara();
 	FarmProduct getProduct();
 	FarmProduct kill();
-	char render();
+	int render();
 };
 
 #endif

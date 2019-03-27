@@ -27,6 +27,6 @@ FarmProduct Platypus::getProduct(){
 		throw "Platypus ini tidak mempunyai produk saat ini";
 	}
 }
-char Platypus::render(){
-	return 'P';
+int Platypus::render(){
+	//return 'P';
 }

@@ -14,6 +14,6 @@ FarmProduct ChickenJago::kill(){
 	ChickenMeat meat;
 	return meat;
 }
-char ChickenJago::render(){
-	return 'J';
+int ChickenJago::render(){
+	//return 'J';
 }

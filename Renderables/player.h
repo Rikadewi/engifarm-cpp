@@ -24,7 +24,7 @@ class Player : public LivingThings {
         void interact(); //interact dengan facility atau egg dan milk producing animal, throw "Tidak bisa interact" jika gagal
         void kill(); //membunuh meat producing animal, throw "Tidak ada hewan untuk dibunuh" jika gagal
         void grow();
-        char render();
+        int render();
         void cekPosisi(int, int&, int&); //buat cek sekitar look around, mungkin bs ditaruh di kelas lbh atas kalo dibutuhkan
 };
 

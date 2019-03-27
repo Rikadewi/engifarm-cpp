@@ -1,6 +1,6 @@
 #include "../truck.h"
 
-char Truck::render(){
+int Truck::render(){
 
 }
 

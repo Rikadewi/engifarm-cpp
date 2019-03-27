@@ -7,7 +7,7 @@
 //barn merupakan turunan dari land
 class Barn : public Land{
 public:
-    char render();  //mengembalikan char yang akan diprint
+    int render();  //mengembalikan char yang akan diprint
 };
 
 #endif

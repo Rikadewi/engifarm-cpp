@@ -24,6 +24,6 @@ SideProduct Mixer::mix(ChickenMeat* meat, PlatypusMilk* milk){
     return soup;
 }
 
-char Mixer::render(){
+int Mixer::render(){
 
 }

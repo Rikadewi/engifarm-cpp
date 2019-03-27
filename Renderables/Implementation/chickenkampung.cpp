@@ -23,6 +23,6 @@ FarmProduct ChickenKampung::kill(){
 	ChickenMeat meat;
 	return meat;
 }
-char ChickenKampung::render(){
-	return 'K';
+int ChickenKampung::render(){
+	//return 'K';
 }

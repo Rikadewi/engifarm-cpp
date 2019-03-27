@@ -9,7 +9,7 @@
 
 class Truck : public Facility{
 public:
-    char render(); //mengembalikan char yang akan diprint pada map
+    int render(); //mengembalikan char yang akan diprint pada map
     bool isAvailable(); //mengembalikan true jika truck bisa dipakai
     void updateTick(); //untuk mengupdate tick
 private:

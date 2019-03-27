@@ -4,7 +4,7 @@ Land::Land(){
     isRumput = false;
 }
 
-char Land::render(){
+int Land::render(){
 
 }
 

@@ -5,7 +5,7 @@
 class Renderables {
     public:
         //Method untuk merender suatu objek
-        virtual char render()=0;
+        virtual int render()=0;
         //setter
         void setX(int X);//jgn lupa ganti matriks di main
         void setY(int Y); //jgn lupa ganti matriks di main

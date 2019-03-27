@@ -1,5 +1,5 @@
 #include "../barn.h"
 
-char Barn::render(){
+int Barn::render(){
     
 }

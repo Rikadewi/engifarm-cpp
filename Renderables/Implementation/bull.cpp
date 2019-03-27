@@ -14,6 +14,6 @@ FarmProduct Bull::kill(){
 	CowMeat meat;
 	return meat;
 }
-char Bull::render(){
-	return 'B';
+int Bull::render(){
+	//return 'B';
 }

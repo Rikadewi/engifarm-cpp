@@ -1,5 +1,5 @@
 #include "../coop.h"
 
-char Coop::render(){
+int Coop::render(){
     
 }

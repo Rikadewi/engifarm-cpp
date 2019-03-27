@@ -4,6 +4,6 @@ GrassLand::GrassLand(){
     isRumput=true;
 }
 
-char GrassLand::render(){
+int GrassLand::render(){
     
 }

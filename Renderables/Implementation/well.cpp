@@ -1,6 +1,6 @@
 #include "../well.h"
 
-char Well::render(){
+int Well::render(){
 
 }
 

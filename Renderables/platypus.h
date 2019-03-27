@@ -14,7 +14,7 @@ public:
 	//prosedur Bersuara menuliskan suara Platypus ke layar
 	void bersuara();
 	FarmProduct getProduct();
-	char render();
+	int render();
 };
 
 #endif
