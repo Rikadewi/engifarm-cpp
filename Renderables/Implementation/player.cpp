@@ -129,6 +129,6 @@ void Player::grow(){
     water--;
 }
 
-char Player::render(){weh
+char Player::render(){
     return 'P';
 }
