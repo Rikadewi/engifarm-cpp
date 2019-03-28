@@ -14,6 +14,7 @@ class GameEngine{
         List<int> lookAround(int,int); //utara , timur, selatan, barat
         int look(int,int);
         void handleMove(int); //1 = atas, 2 = kanan, 3 = bawah, 4 = kiri
+        void handleMoveAnimal();
         void handleTalk();
         void handleInteract();
         void handleKill();
