@@ -1,7 +1,7 @@
 #include "../land.h"
 
 Land::Land(){
-    isRumput = false;
+    rumput = false;
 }
 
 int Land::render(){
@@ -9,5 +9,5 @@ int Land::render(){
 }
 
 void Land::setRumput(bool b){
-    isRumput = b;
+    rumput = b;
 }

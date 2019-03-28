@@ -1,7 +1,7 @@
 #include "../grassland.h"
 
 GrassLand::GrassLand(){
-    isRumput=true;
+    rumput=true;
 }
 
 int GrassLand::render(){
