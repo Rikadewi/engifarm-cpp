@@ -3,7 +3,7 @@
 #define chickenjago_H
 
 #include "farmanimal.h"
-#include "chickenmeat.h"
+#include "../Product/chickenmeat.h"
 
 class ChickenJago : public FarmAnimal{
 public:
