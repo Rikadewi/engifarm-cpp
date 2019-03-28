@@ -1,7 +1,7 @@
 #include "../truck.h"
 
 int Truck::render(){
-
+    return 21;
 }
 
 bool Truck::isAvailable(){
