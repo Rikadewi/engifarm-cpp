@@ -3,8 +3,8 @@
 #define cow_H
 
 #include "farmanimal.h"
-#include "cowmilk.h"
-#include "cowmeat.h"
+#include "../Product/cowmilk.h"
+#include "../Product/cowmeat.h"
 
 class Cow : public FarmAnimal{
 public:

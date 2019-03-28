@@ -3,7 +3,7 @@
 #define FARMANIMAL_H
 
 #include "livingthings.h"
-#include "farmproduct.h"
+#include "../Product/farmproduct.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -39,6 +39,7 @@ public:
 	bool isEgg();
 	bool isMilk();
 	bool isMeat();
+	virtual FarmProduct getProduct() = 0;
 	static int getJumlah();
 };
 

@@ -3,9 +3,9 @@
 #define platypus_H
 
 #include "farmanimal.h"
-#include "farmproduct.h"
-#include "platypusegg.h"
-#include "platypusmilk.h"
+#include "../Product/farmproduct.h"
+#include "../Product/platypusegg.h"
+#include "../Product/platypusmilk.h"
 
 class Platypus : public FarmAnimal{
 public:

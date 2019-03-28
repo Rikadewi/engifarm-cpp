@@ -3,7 +3,7 @@
 #define bull_H
 
 #include "farmanimal.h"
-#include "cowmeat.h"
+#include "../Product/cowmeat.h"
 
 class Bull : public FarmAnimal{
 public:

@@ -53,6 +53,7 @@ class List {
         }
 
         //Services
+
         bool isEmpty() const{
             return (Neff == 0);
         }
@@ -122,6 +123,13 @@ class List {
         
         int getSize(){
             return size;
+        }
+
+        int getNeff(){
+            return Neff;
+        }
+        int getSize(){
+            return Size;
         }
 
         int getFirstIdx(){

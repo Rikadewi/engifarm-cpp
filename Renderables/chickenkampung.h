@@ -3,8 +3,8 @@
 #define chickenkampung_H
 
 #include "farmanimal.h"
-#include "chickenegg.h"
-#include "chickenmeat.h"
+#include "../Product/chickenegg.h"
+#include "../Product/chickenmeat.h"
 
 class ChickenKampung : public FarmAnimal{
 public:

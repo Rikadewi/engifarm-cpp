@@ -2,9 +2,9 @@
 #ifndef goldenplatypus_H
 #define goldenplatypus_H
 
-#include "platypusegg.h"
-#include "platypusmilk.h"
-#include "farmproduct.h"
+#include "../Product/platypusegg.h"
+#include "../Product/platypusmilk.h"
+#include "../Product/farmproduct.h"
 #include "farmanimal.h"
 
 class GoldenPlatypus : public FarmAnimal{
