@@ -26,8 +26,11 @@ class Player : public LivingThings {
         //menerima input Farm Animal
         //mencetak di layar suara animal tersebut
         void talk(FarmAnimal& F); 
-
-        void interact(); //interact dengan facility atau egg dan milk producing animal, throw "Tidak bisa interact" jika gagal
+        
+        //menerima input Renderables
+        //berinteraksi dengan facility, egg producing animal, dan milk producing animal
+        //berinteraksi dengan well menambah water, throw "Air penuh" jika melebihi kapasitas water
+        void interact(Renderables& R); //interact dengan facility atau egg dan milk producing animal, throw "Tidak bisa interact" jika gagal
         
         //menerima input Farm Animal
         //throw "Bukan meat producing animal" jika input bukan meat producing animal
@@ -37,6 +40,8 @@ class Player : public LivingThings {
         //mengurangi jumlah water jika water > 0
         //throw "Air tidak cukup" jika water 
         void grow();
+
+        //mengembalikan 22
         int render();
         void cekPosisi(int, int&, int&); //buat cek sekitar look around, mungkin bs ditaruh di kelas lbh atas kalo dibutuhkan
 };

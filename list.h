@@ -6,6 +6,8 @@ template <class Type>
 class List {
     private:
         Type *data;
+        int size;
+        int Neff;
     public:
         //ctor-cctor-dtor
         List(); //default Ctor
@@ -15,6 +17,8 @@ class List {
         List& operator= (const List<Type>&);
 
         //Services
+        int getNeff();
+        int getSize();
         bool isEmpty() const;
         bool isFull() const;
         void add(Type);
