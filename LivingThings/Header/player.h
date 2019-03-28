@@ -2,11 +2,11 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 #include "livingthings.h"
-#include "../Product/product.h"
+#include "../../Product/Header/product.h"
 #include "farmanimal.h"
-#include "../list.h"
-#include "truck.h"
-#include "facility.h"
+#include "../../List/list.h"
+#include "../../Cell/Header/truck.h"
+#include "../../Cell/Header/facility.h"
 #define DEFWATER 10
 #define MAXWATER 20
 #define DEFMONEY 100

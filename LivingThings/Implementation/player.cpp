@@ -1,7 +1,6 @@
 //File: player.cpp
-#include "../player.h"
-
-
+#include "../Header/player.h"
+#include <string>
 Player::Player() : water(DEFWATER), money(DEFMONEY){
 
 }
@@ -154,7 +153,7 @@ void Player::interact(FarmAnimal& F){
         if(inventory.getSize() < MAXBAG){
             try{
                 inventory.add(F.getProduct(false));
-            }catch (String s){
+            }catch (string s){
                 throw s;
             }
         }else{

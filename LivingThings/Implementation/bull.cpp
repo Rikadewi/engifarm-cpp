@@ -1,4 +1,4 @@
-#include "../bull.h"
+#include "../Header/bull.h"
 
 //konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 Bull::Bull(){
@@ -21,8 +21,8 @@ FarmProduct Bull::getProduct(bool isKill){
 }
 int Bull::render(){
 	if (hungry)
-		return 7;
+		return 11;
 	else
-		return 8;
+		return 12;
 	
 }

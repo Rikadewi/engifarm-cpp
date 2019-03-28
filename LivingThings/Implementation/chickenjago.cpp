@@ -1,4 +1,4 @@
-#include "chickenjago.h"
+#include "../Header/chickenjago.h"
 
 //konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 ChickenJago::ChickenJago(){

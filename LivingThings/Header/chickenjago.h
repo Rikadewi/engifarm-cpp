@@ -3,7 +3,7 @@
 #define chickenjago_H
 
 #include "farmanimal.h"
-#include "../Product/chickenmeat.h"
+#include "../../Product/Header/chickenmeat.h"
 
 class ChickenJago : public FarmAnimal{
 public:
@@ -12,6 +12,7 @@ public:
 	//prosedur Bersuara menuliskan suara ChickenJago ke layar
 	void bersuara();
 	FarmProduct kill();
+	FarmProduct getProduct(bool);
 	int render();
 };
 

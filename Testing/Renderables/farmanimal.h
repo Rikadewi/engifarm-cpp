@@ -25,8 +25,8 @@ public:
 	~FarmAnimal();
 	//prosedur makan mengembalikan living_time menjadi default
 	void makan();
-	//prosedur update dipanggil setiap tick
-	void update();
+	// TIDAK PERLU prosedur update dipanggil setiap tick
+	// void update();
 	//prosedur virtual void makeHungry
 	void makeHungry();
 	//fungsi boolean isHungry mengembalikan true jika atribut hungry bernilai true
@@ -35,7 +35,7 @@ public:
 	virtual void bersuara() = 0;
 	//prosedur move animal
 	bool is_safe_to_move(int);
-	void Move();
+	// void Move() TIDAK PERLU;
 	bool isEgg();
 	bool isMilk();
 	bool isMeat();

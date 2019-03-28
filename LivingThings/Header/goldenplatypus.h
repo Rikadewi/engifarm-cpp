@@ -2,9 +2,9 @@
 #ifndef goldenplatypus_H
 #define goldenplatypus_H
 
-#include "../Product/platypusegg.h"
-#include "../Product/platypusmilk.h"
-#include "../Product/farmproduct.h"
+#include "../../Product/Header/platypusegg.h"
+#include "../../Product/Header/platypusmilk.h"
+#include "../../Product/Header/farmproduct.h"
 #include "farmanimal.h"
 
 class GoldenPlatypus : public FarmAnimal{
@@ -13,7 +13,7 @@ public:
 	GoldenPlatypus();
 	//prosedur Bersuara menuliskan suara GoldenPlatypus ke layar
 	void bersuara();
-	FarmProduct getProduct();
+	FarmProduct getProduct(bool);
 	int render()
 	;
 };

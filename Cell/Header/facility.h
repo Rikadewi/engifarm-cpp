@@ -4,7 +4,7 @@
 
 #include "cell.h"
 
-enum FacilityType {well, mixer, truck}
+enum FacilityType {well, mixer, truck};
 
 //facility merupakan turunan dari cell
 class Facility : public Cell{
@@ -13,6 +13,8 @@ class Facility : public Cell{
     public:
         FacilityType getType();
         void setType(FacilityType);
+        FarmAnimal* getAnimal();
+        void setAnimal(FarmAnimal*);
 };
 
 #endif

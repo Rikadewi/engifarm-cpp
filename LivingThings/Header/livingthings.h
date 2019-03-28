@@ -2,16 +2,19 @@
 #ifndef __LIVINGTHINGS_H__
 #define __LIVINGTHINGS_H__
 
-#include "../list.h"
-#include "renderables.h"
+#include "../../List/list.h"
 
-class LivingThings : public Renderables {
+class LivingThings {
     public:
         virtual void move() = 0;
-    protected:
+        int getX();
+        int getY();
+        void setX(int);
+        void setY(int);
+    private:
         //urutan: utara, timur, selatan, barat
-        List <int> lookAround(); //diubah jadi method
-        
+        int posisiX;
+        int posisiY;
 };
 
 #endif

@@ -3,9 +3,9 @@
 #define platypus_H
 
 #include "farmanimal.h"
-#include "../Product/farmproduct.h"
-#include "../Product/platypusegg.h"
-#include "../Product/platypusmilk.h"
+#include "../../Product/Header/farmproduct.h"
+#include "../../Product/Header/platypusegg.h"
+#include "../../Product/Header/platypusmilk.h"
 
 class Platypus : public FarmAnimal{
 public:
@@ -13,7 +13,7 @@ public:
 	Platypus();
 	//prosedur Bersuara menuliskan suara Platypus ke layar
 	void bersuara();
-	FarmProduct getProduct();
+	FarmProduct getProduct(bool);
 	int render();
 };
 

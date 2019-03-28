@@ -1,7 +1,7 @@
-#include "../mixer.h"
-#include "../../Product/beefomellete.h"
-#include "../../Product/platycowpancake.h"
-#include "../../Product/plachicksoup.h"
+#include "../Header/mixer.h"
+#include "../../Product/Header/beefomellete.h"
+#include "../../Product/Header/platycowpancake.h"
+#include "../../Product/Header/plachicksoup.h"
 
 SideProduct Mixer::mix(ChickenEgg egg, CowMeat meat){
     BeefOmellete beef;

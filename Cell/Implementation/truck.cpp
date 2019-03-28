@@ -1,15 +1,19 @@
-#include "../truck.h"
+#include "../Header/truck.h"
+
+void Truck::setNotReady(){
+    ready = MAXREADY;
+}
 
 int Truck::render(){
     return 21;
 }
 
 bool Truck::isAvailable(){
-    return (tick==0);
+    return (ready==0);
 }
 
 void Truck::updateTick(){
-    if(tick>0){
-        tick--;
+    if(ready>0){
+        ready--;
     }
 }

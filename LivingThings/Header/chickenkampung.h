@@ -3,8 +3,8 @@
 #define chickenkampung_H
 
 #include "farmanimal.h"
-#include "../Product/chickenegg.h"
-#include "../Product/chickenmeat.h"
+#include "../../Product/Header/chickenegg.h"
+#include "../../Product/Header/chickenmeat.h"
 
 class ChickenKampung : public FarmAnimal{
 public:
@@ -12,7 +12,7 @@ public:
 	ChickenKampung();
 	//prosedur Bersuara menuliskan suara ChickenKampung ke layar
 	void bersuara();
-	FarmProduct getProduct();
+	FarmProduct getProduct(bool);
 	FarmProduct kill();
 	int render();
 };

@@ -3,7 +3,7 @@
 #define FARMANIMAL_H
 
 #include "livingthings.h"
-#include "../Product/farmproduct.h"
+#include "../../Product/Header/farmproduct.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -26,7 +26,7 @@ public:
 	//prosedur makan mengembalikan living_time menjadi default
 	void makan();
 	//prosedur update dipanggil setiap tick
-	void update();
+	// void update();
 	//prosedur virtual void makeHungry
 	void makeHungry();
 	//fungsi boolean isHungry mengembalikan true jika atribut hungry bernilai true
@@ -34,12 +34,12 @@ public:
 	//deklarasi fungsi pure virtual
 	virtual void bersuara() = 0;
 	//prosedur move animal
-	bool is_safe_to_move(int);
-	void move();
+	// bool is_safe_to_move(int);
+	// void move();
 	bool isEgg();
 	bool isMilk();
 	bool isMeat();
-	virtual FarmProduct getProduct() = 0;
+	virtual FarmProduct getProduct(bool) = 0;
 	static int getJumlah();
 };
 

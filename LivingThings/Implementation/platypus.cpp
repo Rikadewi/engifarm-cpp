@@ -1,4 +1,4 @@
-#include "platypus.h"
+#include "../Header/platypus.h"
 
 Platypus::Platypus(){
 	FarmAnimal::egg = true;

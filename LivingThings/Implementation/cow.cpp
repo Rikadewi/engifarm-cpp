@@ -1,4 +1,4 @@
-#include "cow.h"
+#include "../Header/cow.h"
 
 Cow::Cow(){
 	FarmAnimal::egg = false;

@@ -3,13 +3,13 @@
 #define mixer_H
 
 #include "facility.h"
-#include "../Product/sideproduct.h"
-#include "../Product/chickenegg.h"
-#include "../Product/platypusegg.h"
-#include "../Product/chickenmeat.h"
-#include "../Product/cowmeat.h"
-#include "../Product/cowmilk.h"
-#include "../Product/platypusmilk.h"
+#include "../../Product/Header/beefomellete.h"
+#include "../../Product/Header/chickenegg.h"
+#include "../../Product/Header/platypusegg.h"
+#include "../../Product/Header/chickenmeat.h"
+#include "../../Product/Header/cowmeat.h"
+#include "../../Product/Header/cowmilk.h"
+#include "../../Product/Header/platypusmilk.h"
 
 //mixer merupakan turunan dari facility
 class Mixer : public Facility{

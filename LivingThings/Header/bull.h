@@ -3,7 +3,7 @@
 #define bull_H
 
 #include "farmanimal.h"
-#include "../Product/cowmeat.h"
+#include "../../Product/Header/cowmeat.h"
 
 class Bull : public FarmAnimal{
 public:
@@ -12,6 +12,7 @@ public:
 	//prosedur Bersuara menuliskan suara Bull ke layar
 	void bersuara();
 	FarmProduct kill();
+	FarmProduct getProduct(bool);
 	int render();
 };
 

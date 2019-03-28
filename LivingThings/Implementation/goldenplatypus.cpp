@@ -1,4 +1,4 @@
-#include "goldenplatypus.h"
+#include "../Header/goldenplatypus.h"
 
 GoldenPlatypus::GoldenPlatypus(){
 	FarmAnimal::egg = true;
@@ -34,9 +34,9 @@ FarmProduct GoldenPlatypus::getProduct(bool isKill){
 }
 int GoldenPlatypus::render(){
 	if (hungry)
-		return 11;
+		return 7;
 	else
 	{
-		return 12;
+		return 8;
 	}
 }

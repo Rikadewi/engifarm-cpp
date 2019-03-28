@@ -1,4 +1,4 @@
-#include "chickenkampung.h"
+#include "../Header/chickenkampung.h"
 
 ChickenKampung::ChickenKampung(){
 	FarmAnimal::egg = true;
