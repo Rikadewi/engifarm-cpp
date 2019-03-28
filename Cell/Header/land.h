@@ -4,14 +4,16 @@
 
 #include "cell.h"
 
+enum LandType {}
 class Land : public Cell {
-protected:
-  bool rumput; 
-public:
-  int render();  //mengembalikan char yang akan diprint
-  Land(); //set isRumput = false
-  bool isRumput(); //getter rumput
-  void setRumput(bool); //set isRumput menjadi true jika merupakan grassland, false ketika dimakan animal
+    private:
+        bool rumput; 
+        FarmAnimal animal;
+    public:
+        int render();  //mengembalikan char yang akan diprint
+        bool isRumput(); 
+        void setRumput(bool); //set isRumput menjadi true jika merupakan grassland, false ketika dimakan animal
+
 };
 
 #endif

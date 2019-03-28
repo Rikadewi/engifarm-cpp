@@ -1,10 +1,16 @@
 //File : cell.h
 #ifndef CELL_H
 #define CELL_H
-#include "renderables.h"
 
-//cell merupakan turunan dari renderables
-class Cell : public Renderables{
+enum Place {land, facility}
+
+class Cell{
+    private:
+        Place place;
+    public:
+        virtual int render() = 0;
+        Place getPlace();
+        void setPlace(Place);
 };
 
 #endif
