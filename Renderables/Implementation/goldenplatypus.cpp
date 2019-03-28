@@ -10,23 +10,33 @@ GoldenPlatypus::GoldenPlatypus(){
 void GoldenPlatypus::bersuara(){
 	cout << "krrrrrrr..." << endl;
 }
-FarmProduct GoldenPlatypus::getProduct(){
-	if (hasProduct){
-		hasProduct = false;
-		int x = rand() % 2;
-		if (x == 0){
-			PlatypusMilk milk;
-			return milk;
-		}
-		else{
-			PlatypusEgg egg;
-			return egg;
-		}
+FarmProduct GoldenPlatypus::getProduct(bool isKill){
+	if (isKill){
+		throw "kamu tidak boleh membunuh seekor platypus";
 	}
 	else{
-		throw "Platypus ini tidak mempunyai produk saat ini";
+		if (hasProduct){
+			hasProduct = false;
+			int x = rand() % 2;
+			if (x == 0){
+				PlatypusMilk milk;
+				return milk;
+			}
+			else{
+				PlatypusEgg egg;
+				return egg;
+			}
+		}
+		else{
+			throw "GoldenPlatypus ini tidak mempunyai produk saat ini";
+		}
 	}
 }
 int GoldenPlatypus::render(){
-	//return 'G';
+	if (hungry)
+		return 11;
+	else
+	{
+		return 12;
+	}
 }

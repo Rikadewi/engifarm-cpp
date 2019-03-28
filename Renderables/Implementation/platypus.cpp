@@ -10,7 +10,7 @@ Platypus::Platypus(){
 void Platypus::bersuara(){
 	cout << "krrrrrrr..." << endl;
 }
-FarmProduct Platypus::getProduct(){
+FarmProduct Platypus::getProduct(bool isKill){
 	if (hasProduct){
 		hasProduct = false;
 		int x = rand() % 2;
@@ -28,5 +28,11 @@ FarmProduct Platypus::getProduct(){
 	}
 }
 int Platypus::render(){
-	//return 'P';
+	if (hungry)
+		return 9;
+	else
+	{
+		return 10;
+	}
+	
 }

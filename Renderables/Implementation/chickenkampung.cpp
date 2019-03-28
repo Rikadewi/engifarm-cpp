@@ -8,21 +8,24 @@ ChickenKampung::ChickenKampung(){
 void ChickenKampung::bersuara(){
 	cout << "pok pok petoook" << endl;
 }
-FarmProduct ChickenKampung::getProduct(){
-	if (hasProduct){
-		ChickenEgg egg;
-		return egg;
+FarmProduct ChickenKampung::getProduct(bool isKill){
+	if (isKill){
+		ChickenMeat meat;
+		return meat;
 	}
-	else
-	{
-		throw "ayam kampung ini tidak memiliki produk saat ini";
+	else{
+		if (hasProduct){
+			ChickenEgg egg;
+			return egg;
+		}
+		else
+			throw "ayam kampung ini tidak memiliki produk saat ini";
 	}
-	
-}
-FarmProduct ChickenKampung::kill(){
-	ChickenMeat meat;
-	return meat;
 }
 int ChickenKampung::render(){
-	//return 'K';
+	if (hungry)
+		return 1;
+	else
+		return 2;
+	
 }

@@ -10,10 +10,20 @@ ChickenJago::ChickenJago(){
 void ChickenJago::bersuara(){
 	cout << "kukuruyuuuuuk" << endl;
 }
-FarmProduct ChickenJago::kill(){
-	ChickenMeat meat;
-	return meat;
+FarmProduct ChickenJago::getProduct(bool isKill){
+	if (isKill){
+		ChickenMeat meat;
+		return meat;
+	}
+	else
+		throw "ChickenJago tidak memiliki telur";
+	
 }
 int ChickenJago::render(){
-	//return 'J';
+	if (hungry){
+		return 3;
+	}
+	else{
+		return 4;
+	}
 }
