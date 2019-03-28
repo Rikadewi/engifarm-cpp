@@ -1,0 +1,1 @@
+g++ testMain.cpp "Renderables/Implementation/player.cpp" -o tes
