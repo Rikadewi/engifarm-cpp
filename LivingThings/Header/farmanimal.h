@@ -35,7 +35,7 @@ public:
 	virtual void bersuara() = 0;
 	//prosedur move animal
 	bool is_safe_to_move(int);
-	void Move();
+	void move();
 	bool isEgg();
 	bool isMilk();
 	bool isMeat();
