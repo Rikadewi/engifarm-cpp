@@ -29,19 +29,30 @@ class Player : public LivingThings {
         //mencetak di layar suara animal tersebut
         void talk(FarmAnimal& F); 
         
-        
-        //berinteraksi dengan facility, egg producing animal, dan milk producing animal
-        //berinteraksi dengan truck menjual semua inventory, throw "Truck tidak ada" jika truck belum available
-        
-        //menerima input mixer dan well
+        //menerima input facility (mixer dan well)
+        //throw "Bukan mixer dan well" jika tidak ada
         //berinteraksi dengan well menambah water, jika melebihi kapasitas maka air tidak bertambah
         //mixer
         void interact(Facility& F); 
         
+        //menerima input truck
+        //berinteraksi dengan truck menjual semua inventory, throw "Truck tidak ada" jika truck belum available
+        //hasil penjualan akan ditambahkan ke money
+        //jika kapasitas money sudah penuh, maka akan ditambahkan hingga MAXMONEY
         void interact(Truck& T); 
+
+        //menerima input Farm Animal
+        //berinteraksi dengan milk dan egg producing animal
+        //throw "Tidak bisa berinteraksi dengan meat producing animal" jika berinteraksi dengan meat producing animal
+        //jika animal tidak lapar, akan mendapatkan prodcut
+        //throw exception jika animal lapar
+        //mendapatkan product jika inventory masih cukup
+        //throw "Inventory penuh" jika inventory penuh
         void interact(FarmAnimal& F); 
         
         //menerima input Farm Animal
+        //jika animal tidak lapar, akan mendapatkan prodcut
+        //throw exception jika animal lapar
         //throw "Bukan meat producing animal" jika input bukan meat producing animal
         //throw "Inventory penuh" jika inventory penuh
         void kill(FarmAnimal& F); 

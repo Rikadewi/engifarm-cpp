@@ -1,6 +1,11 @@
 //File: player.cpp
 #include "../player.h"
 
+
+Player::Player() : water(DEFWATER), money(DEFMONEY){
+
+}
+
 void Player::cekPosisi (int i, int& x, int& y){
     if(i == 0){
         y = getY()-1;
@@ -18,10 +23,6 @@ void Player::cekPosisi (int i, int& x, int& y){
         x = getX()-1;
         y = getY();
     }
-}
-
-Player::Player() : water(DEFWATER), money(DEFMONEY){
-
 }
 
 void Player::move(){
@@ -106,8 +107,11 @@ void Player::interact(Facility& F){
     }else{
         if(id == 20){
             //interaksi dengan mixer
+
         }else{
+            //interaksi dengan truck
             throw "Bukan mixer dan well";
+            //interact (F);
         }
     }
     
@@ -122,6 +126,41 @@ void Player::interact(Facility& F){
         //     }
         // }
         
+}
+
+
+void Player::interact(Truck& T){
+    if(T.isAvailable()){
+        while(!inventory.isEmpty()){
+            Product* temp;
+            inventory.removeAt(inventory.getLastIdx(), temp);
+            if(temp->getHarga() + money > MAXMONEY){
+                money = MAXMONEY;
+            }else{
+                money +=temp->getHarga();
+            }
+            delete temp;
+        }
+    }else{
+        throw "Truck tidak ada";
+    }
+}
+
+
+void Player::interact(FarmAnimal& F){
+    if(F.isMeat()){
+        throw "Tidak bisa berinteraksi dengan meat producing animal";
+    }else{
+        if(inventory.getSize() < MAXBAG){
+            try{
+                inventory.add(F.getProduct(false));
+            }catch (String s){
+                throw s;
+            }
+        }else{
+            throw "Inventory penuh";
+        }
+    }
 }
 
 void Player::kill(FarmAnimal& F){
@@ -150,7 +189,7 @@ void Player::kill(FarmAnimal& F){
     // }
     if (F.isMeat()){
         if(inventory.getSize() < MAXBAG){
-            inventory.add(F.getProduct());
+            inventory.add(F.getProduct(true));
         }else{
             throw "Inventory penuh";
         }
