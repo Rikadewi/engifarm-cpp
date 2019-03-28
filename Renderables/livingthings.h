@@ -9,7 +9,9 @@ class LivingThings : public Renderables {
     public:
         virtual void Move() = 0;
     protected:
+        //urutan: utara, timur, selatan, barat
         List <int> lookAround(); //diubah jadi method
+        
 };
 
 #endif

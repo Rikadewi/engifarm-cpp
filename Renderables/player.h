@@ -23,7 +23,8 @@ class Player : public LivingThings {
     public:
         //ctor
         Player(); 
-        void move(); //berpindah ke cell yang bertipe land, throw "Tidak ada space" jika di sekeliling player tidak ada land
+        //berpindah ke cell yang bertipe land, throw "Tidak ada space" jika di sekeliling player tidak ada land
+        void move(); 
         
         //menerima input Farm Animal
         //mencetak di layar suara animal tersebut

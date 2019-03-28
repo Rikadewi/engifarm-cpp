@@ -14,7 +14,7 @@ class Renderables {
         //20 untuk mixer
         //21 untuk truck
         //22 untuk player
-        //urutan: utara, timur, selatan, barat
+        
         //Method untuk merender suatu objek
         virtual int render()=0;
         //setter
@@ -26,7 +26,7 @@ class Renderables {
         bool isLand (int); //liat comment di look around
         bool isAnimal (int); //liat comment di look around
         bool isFacility(int); //liat comment di look around
-
+        
     protected: //knpa ini nggk private aja?
         int PosisiX;
         int PosisiY;
