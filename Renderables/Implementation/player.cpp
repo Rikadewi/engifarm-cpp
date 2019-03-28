@@ -68,34 +68,48 @@ void Player::talk(FarmAnimal& F){
     F.bersuara();
 }
 
-void Player::interact(){
-    List<int> around = lookAround();
-    bool found = false;
-    int i = 0;
-    while ((!found) && (i<4)){
-        if(isFacility(around.get(i))){
-            //facility.interact()?
-            found = true;
-        }else{
-            if(isAnimal(around.get(i))){
-                int x, y;
-                cekPosisi(i, x, y);
-                //matriks [x][y].isEgg() or matriks [x][y].isMilk()
-                if(true){
-                    found = true;
-                    //animal.interact()?
-                }else{
-                    i++;
-                }
+void Player::interact(Renderables& R){
+    // List<int> around = lookAround();
+    // bool found = false;
+    // int i = 0;
+    // while ((!found) && (i<4)){
+    //     if(isFacility(around.get(i))){
+    //         //facility.interact()?
+    //         found = true;
+    //     }else{
+    //         if(isAnimal(around.get(i))){
+    //             int x, y;
+    //             cekPosisi(i, x, y);
+    //             //matriks [x][y].isEgg() or matriks [x][y].isMilk()
+    //             if(true){
+    //                 found = true;
+    //                 //animal.interact()?
+    //             }else{
+    //                 i++;
+    //             }
+    //         }else{
+    //             i++;
+    //         }
+    //     }
+    // }
+    // if(!found){
+    //     throw "Tidak bisa interact";
+    // }else{
+    //     //kalo ada things.interact() nda perlu
+    // }
+    int id = R.render();
+    if(R.isFacility(id)){
+        if(id == 19){
+            if(water < MAXWATER){
+                water++;
             }else{
-                i++;
+                throw "Air penuh";
             }
         }
-    }
-    if(!found){
-        throw "Tidak bisa interact";
-    }else{
-        //kalo ada things.interact() nda perlu
+        if(id == 20){
+            //
+        }
+        
     }
 }
 
@@ -127,7 +141,7 @@ void Player::kill(FarmAnimal& F){
         if(inventory.getSize() < MAXBAG){
             inventory.add(F.getProduct());
         }else{
-            throw "Inventory penuh"
+            throw "Inventory penuh";
         }
         // F.getProduct();
         
@@ -141,11 +155,10 @@ void Player::grow(){
     if(water > 0){
         water--;    
     }else{
-        
+        throw "Air tidak cukup";
     }
-    
 }
 
 int Player::render(){
-    //return 'P';
+    return 22;
 }
