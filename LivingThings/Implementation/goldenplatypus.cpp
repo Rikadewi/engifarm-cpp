@@ -1,0 +1,42 @@
+#include "goldenplatypus.h"
+
+GoldenPlatypus::GoldenPlatypus(){
+	FarmAnimal::egg = true;
+	FarmAnimal::milk = true;
+	FarmAnimal::meat = false;
+}
+
+//prosedur Bersuara menuliskan suara GoldenPlatypus ke layar
+void GoldenPlatypus::bersuara(){
+	cout << "krrrrrrr..." << endl;
+}
+FarmProduct GoldenPlatypus::getProduct(bool isKill){
+	if (isKill){
+		throw "kamu tidak boleh membunuh seekor platypus";
+	}
+	else{
+		if (hasProduct){
+			hasProduct = false;
+			int x = rand() % 2;
+			if (x == 0){
+				PlatypusMilk milk;
+				return milk;
+			}
+			else{
+				PlatypusEgg egg;
+				return egg;
+			}
+		}
+		else{
+			throw "GoldenPlatypus ini tidak mempunyai produk saat ini";
+		}
+	}
+}
+int GoldenPlatypus::render(){
+	if (hungry)
+		return 11;
+	else
+	{
+		return 12;
+	}
+}
