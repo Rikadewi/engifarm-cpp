@@ -46,25 +46,26 @@ void Player::move(){
     }
 }
 
-void Player::talk(){
-    List<int> around = lookAround();
-    bool found = false;
-    int i = 0;
-    while ((!found) && (i<4)){
-        if(isAnimal(around.get(i))){
-            found = true;
-        }else{
-            i++;
-        }
-    }
-    if(!found){
-        throw "Tidak ada Hewan";
-    }else{
-        //problem dlm 1 petak ada land ada living things
-        int x, y;
-        cekPosisi(i, x, y);
-        //matriks [x][y].bersuara()
-    }
+void Player::talk(FarmAnimal& F){
+    // List<int> around = lookAround();
+    // bool found = false;
+    // int i = 0;
+    // while ((!found) && (i<4)){
+    //     if(isAnimal(around.get(i))){
+    //         found = true;
+    //     }else{
+    //         i++;
+    //     }
+    // }
+    // if(!found){
+    //     throw "Tidak ada Hewan";
+    // }else{
+    //     //problem dlm 1 petak ada land ada living things
+    //     int x, y;
+    //     cekPosisi(i, x, y);
+    //     //matriks [x][y].bersuara()
+    // }
+    F.bersuara();
 }
 
 void Player::interact(){
@@ -98,35 +99,51 @@ void Player::interact(){
     }
 }
 
-void Player::kill(){
-    List<int> around = lookAround();
-    bool found = false;
-    int i = 0;
-    while ((!found) && (i<4)){
-        if(isAnimal(around.get(i))){
-            int x, y;
-            cekPosisi(i, x, y);
-            //matriks [x][y].isMeat()
-            if(true){
-                found = true;
-                //animal.kill()?
-            }else{
-                i++;
-            }
+void Player::kill(FarmAnimal& F){
+    // List<int> around = lookAround();
+    // bool found = false;
+    // int i = 0;
+    // while ((!found) && (i<4)){
+    //     if(isAnimal(around.get(i))){
+    //         int x, y;
+    //         cekPosisi(i, x, y);
+    //         //matriks [x][y].isMeat()
+    //         if(true){
+    //             found = true;
+    //             //animal.kill()?
+    //         }else{
+    //             i++;
+    //         }
+    //     }else{
+    //         i++;
+    //     }
+    // }
+    // if(!found){
+    //     throw "Tidak ada hewan untuk dibunuh";
+    // }else{
+    //     //kalo ada things.kill() nda perlu
+    // }
+    if (F.isMeat()){
+        if(inventory.getSize() < MAXBAG){
+            inventory.add(F.getProduct());
         }else{
-            i++;
+            throw "Inventory penuh"
         }
-    }
-    if(!found){
-        throw "Tidak ada hewan untuk dibunuh";
+        // F.getProduct();
+        
     }else{
-        //kalo ada things.kill() nda perlu
+        throw "Bukan meat producing animal";
     }
 }
 
 void Player::grow(){
     //matriks[getX()][getY()].setRumput();
-    water--;
+    if(water > 0){
+        water--;    
+    }else{
+        
+    }
+    
 }
 
 int Player::render(){

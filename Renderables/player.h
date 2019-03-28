@@ -3,6 +3,7 @@
 #define __PLAYER_H__
 #include "livingthings.h"
 #include "../Product/product.h"
+#include "farmanimal.h"
 #include "../list.h"
 #define DEFWATER 10
 #define MAXWATER 20
@@ -18,11 +19,23 @@ class Player : public LivingThings {
         List <Product> inventory; //tas
         long money; //menyimpang uang dari player
     public:
-        Player(); //ctor
+        //ctor
+        Player(); 
         void move(); //berpindah ke cell yang bertipe land, throw "Tidak ada space" jika di sekeliling player tidak ada land
-        void talk(); //berbicara dengan hewan, throw "Tidak ada hewan" jika tidak ditemukan hewan di sekeliling player
+        
+        //menerima input Farm Animal
+        //mencetak di layar suara animal tersebut
+        void talk(FarmAnimal& F); 
+
         void interact(); //interact dengan facility atau egg dan milk producing animal, throw "Tidak bisa interact" jika gagal
-        void kill(); //membunuh meat producing animal, throw "Tidak ada hewan untuk dibunuh" jika gagal
+        
+        //menerima input Farm Animal
+        //throw "Bukan meat producing animal" jika input bukan meat producing animal
+        //throw "Inventory penuh" jika inventory penuh
+        void kill(FarmAnimal& F); 
+
+        //mengurangi jumlah water jika water > 0
+        //throw "Air tidak cukup" jika water 
         void grow();
         int render();
         void cekPosisi(int, int&, int&); //buat cek sekitar look around, mungkin bs ditaruh di kelas lbh atas kalo dibutuhkan
