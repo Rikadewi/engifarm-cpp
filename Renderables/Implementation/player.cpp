@@ -68,7 +68,7 @@ void Player::talk(FarmAnimal& F){
     F.bersuara();
 }
 
-void Player::interact(Renderables& R){
+void Player::interact(Facility& F){
     // List<int> around = lookAround();
     // bool found = false;
     // int i = 0;
@@ -97,20 +97,31 @@ void Player::interact(Renderables& R){
     // }else{
     //     //kalo ada things.interact() nda perlu
     // }
-    int id = R.render();
-    if(R.isFacility(id)){
-        if(id == 19){
-            if(water < MAXWATER){
-                water++;
-            }else{
-                throw "Air penuh";
-            }
+    int id = F.render();
+    if(id == 19){
+        //interaksi dengan well
+        if(water < MAXWATER){
+            water++;
         }
+    }else{
         if(id == 20){
-            //
+            //interaksi dengan mixer
+        }else{
+            throw "Bukan mixer dan well";
         }
-        
     }
+    
+        // if(id == 21){
+        //     //interaksi dengan truck
+        //     if(R.isAvailable()){
+        //         while(!inventory.isEmpty()){
+
+        //         }
+        //     }else{
+        //         throw "Truck tidak ada";
+        //     }
+        // }
+        
 }
 
 void Player::kill(FarmAnimal& F){

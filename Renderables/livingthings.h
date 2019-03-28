@@ -7,7 +7,7 @@
 
 class LivingThings : public Renderables {
     public:
-        virtual void Move();
+        virtual void Move() = 0;
     protected:
         List <int> lookAround(); //diubah jadi method
 };

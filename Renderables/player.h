@@ -5,6 +5,8 @@
 #include "../Product/product.h"
 #include "farmanimal.h"
 #include "../list.h"
+#include "truck.h"
+#include "facility.h"
 #define DEFWATER 10
 #define MAXWATER 20
 #define DEFMONEY 100
@@ -27,10 +29,17 @@ class Player : public LivingThings {
         //mencetak di layar suara animal tersebut
         void talk(FarmAnimal& F); 
         
-        //menerima input Renderables
+        
         //berinteraksi dengan facility, egg producing animal, dan milk producing animal
-        //berinteraksi dengan well menambah water, throw "Air penuh" jika melebihi kapasitas water
-        void interact(Renderables& R); //interact dengan facility atau egg dan milk producing animal, throw "Tidak bisa interact" jika gagal
+        //berinteraksi dengan truck menjual semua inventory, throw "Truck tidak ada" jika truck belum available
+        
+        //menerima input mixer dan well
+        //berinteraksi dengan well menambah water, jika melebihi kapasitas maka air tidak bertambah
+        //mixer
+        void interact(Facility& F); 
+        
+        void interact(Truck& T); 
+        void interact(FarmAnimal& F); 
         
         //menerima input Farm Animal
         //throw "Bukan meat producing animal" jika input bukan meat producing animal
