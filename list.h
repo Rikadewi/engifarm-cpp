@@ -128,9 +128,9 @@ class List {
         int getNeff(){
             return Neff;
         }
-        int getSize(){
-            return Size;
-        }
+        // int getSize(){
+        //     return Size;
+        // }
 
         int getFirstIdx(){
             return IdxMin;
