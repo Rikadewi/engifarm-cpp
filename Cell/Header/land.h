@@ -22,6 +22,9 @@ class Land : public Cell {
         void setType(LandType);
         FarmAnimal* getAnimal();
         void setAnimal(FarmAnimal*);
+        void updateCell();
+
+
 };
 
 #endif

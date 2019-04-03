@@ -15,6 +15,7 @@ class Facility : public Cell{
         void setType(FacilityType);
         FarmAnimal* getAnimal();
         void setAnimal(FarmAnimal*);
+
 };
 
 #endif

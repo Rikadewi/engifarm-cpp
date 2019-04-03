@@ -55,3 +55,6 @@ FarmAnimal* Land::getAnimal(){
 void Land::setAnimal(FarmAnimal* animal){
     this->animal = animal;
 }
+
+void Land::updateCell(){
+}

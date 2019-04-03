@@ -12,7 +12,7 @@ bool Truck::isAvailable(){
     return (ready==0);
 }
 
-void Truck::updateTick(){
+void Truck::updateCell(){
     if(ready>0){
         ready--;
     }

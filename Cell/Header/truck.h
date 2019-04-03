@@ -13,7 +13,8 @@ public:
     void setNotReady();
     int render(); //mengembalikan char yang akan diprint pada map
     bool isAvailable(); //mengembalikan true jika truck bisa dipakai
-    void updateTick(); //untuk mengupdate tick
+    void updateCell(); //Untuk update keadaan truck
+
 private:
     int ready; //melambangkan seberapa lama lagi hingga truck bisa dipakai
 };

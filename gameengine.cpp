@@ -8,23 +8,23 @@ GameEngine::GameEngine(){
     for(int i=0;i<WORLDSIZE;i++){
         for(int j=0; j<WORLDSIZE; j++){
             if ((i!=18)&&((j!=3)||(j!=9)||(j!=16))){
-                Land l;
-                world[i][j] = &l;
+                // Land l;
+                // world[i][j] = &l;
             }
         }
     }
     for(int i=1;i<10;i++){
         for(int j=1; j<10;j++){
-            world[i][j] -> setType(coop);
+            // world[i][j] -> setType(coop);
         }
         for(int j=9; j<18;j++){
-            world[i][j] -> setType(grassLand);
+            // world[i][j] -> setType(grassLand);
         }
     }
     for(int i=10;i<16;i++){
-        for(int j=1; j<){
+        // for(int j=1; j<){
             
-        }
+        // }
     }
     int i=18;
     Mixer m;
@@ -63,20 +63,32 @@ List<int> GameEngine::lookAround(int x, int y){
 void GameEngine::handleInteract(){
     //Mendapatkan list yang berisi objek disekitarnya
     List<int> around = lookAround(engi.getX(),engi.getY());
-    bool found = false;
+    bool foundAnimal= false;
+    bool foundFacility = false;
     int i=0;
-    while ((!found) && (i<4)){
+    while ((!foundAnimal || !foundFacility) && (i<4)){
         //jika animal
         if(around.getElmt(i)>=1 && around.getElmt(i)<=10){
-            found = true;
+            foundAnimal = true;
+        }else{ 
+            if (around.getElmt(i)>=19 && around.getElmt(i)<=21){ //facility
+                foundFacility=true;
+            }else{
+                i++;
+            }
         }
     }
-    if(around.getElmt(0)!=0){
-        if(around.getElmt(0)>=1 && around.getElmt(0)<=10){ //Animal penghasil egg dan milk
-            FarmAnimal* temp = world[engi.getX()-1][engi.getY()]->getAnimal();
-            engi.interact(*temp);            
-        }
-        else if(around.getElmt(0)>=1 && around.getElmt(0)<=10)
+
+    if (foundAnimal){
+        FarmAnimal* temp = world[engi.getX()-1][engi.getY()]->getAnimal();
+        engi.interact(*temp);
+    }
+
+    if(foundFacility){
+        int id = around.getElmt(i);
+        if(around.getElmt(i)==19){//well
+            
+        }        
     }
     
 
@@ -166,7 +178,7 @@ void GameEngine::handleTalk(){
 }
 
 void GameEngine::handleMakan(int x, int y){
-
+    world[engi.getX()-1][engi.getY()]->
 }
 
 int GameEngine::getID(int i,int j){
@@ -182,11 +194,12 @@ void GameEngine::updateGame(){
             if(getID(i,j) < 13) { //Jika merupakan animal
                 //Gerakan Animal Tsb   
                 handleMoveAnimal(i,j);
+                //Bikin Animal tsb makan
                 handleMakan(i,j);
             }
             else if (getID(i,j) == 21 ){ //Jika merupakan truck
                 //Ubah keadaan trucknya
-                if(world[i][j]->)
+                world[i][j]->updateCell();
             }
             //Kasus lain???
         }

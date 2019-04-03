@@ -30,8 +30,10 @@ class Cell{
         //22 untuk player
         virtual int render() = 0;
         CellType getType();
+        virtual void updateCell() = 0;
         void setType(CellType);
         virtual FarmAnimal* getAnimal() = 0;
+
         
         //throw "Can't set Facility" jika type cell facility
         virtual void setAnimal(FarmAnimal*) = 0;

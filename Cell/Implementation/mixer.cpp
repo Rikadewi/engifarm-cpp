@@ -27,3 +27,7 @@ SideProduct Mixer::mix(ChickenMeat meat, PlatypusMilk milk){
 int Mixer::render(){
     return 20;
 }
+
+void Mixer::updateCell(){
+
+}

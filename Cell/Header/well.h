@@ -9,6 +9,8 @@ class Well : public Facility{
 public:
     int render(); //mengembalikan char yang akan diprint
     // void fillWater(); //mengisi air pada ember
+    void updateCell();
+
 };
 
 #endif

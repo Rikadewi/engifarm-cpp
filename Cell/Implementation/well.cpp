@@ -4,3 +4,6 @@ int Well::render(){
     return 19;
 }
 
+void Well::updateCell(){
+    
+}
