@@ -7,29 +7,38 @@ Land::Land(bool rumput, FarmAnimal* animal, LandType type){
 }
 
 int Land::render(){
-    if(type == barn){
-        if(isRumput()){
-            return 14;
+    if(getPlayer() == NULL){
+        if(getAnimal() == NULL){
+            if(type == barn){
+                if(isRumput()){
+                    return 14;
+                }else{
+                    return 13;
+                }
+            }
+
+            if(type == coop){
+                if(isRumput()){
+                    return 16;
+                }else{
+                    return 15;
+                }
+            }
+            if(type == grassLand){
+                if(isRumput()){
+                    return 18;
+                }else{
+                    return 17;
+                }
+            }
         }else{
-            return 13;
+            return getAnimal()->getId();
         }
+    }
+    else{
+        return 22;
     }
 
-    if(type == coop){
-        if(isRumput()){
-            return 16;
-        }else{
-            return 15;
-        }
-    }
-
-    if(type == grassLand){
-        if(isRumput()){
-            return 18;
-        }else{
-            return 17;
-        }
-    }
 }
 
 bool Land::isRumput(){
@@ -56,5 +65,49 @@ void Land::setAnimal(FarmAnimal* animal){
     this->animal = animal;
 }
 
-void Land::updateCell(){
+void Land::updateCell(UpdateType type){
+    if(type == grow){
+        setRumput(true);
+        Player* P = getPlayer();
+        P -> grow();
+        return;
+    }
+    
+    if(type == makan){
+        FarmAnimal* F = getAnimal();
+        if(F != NULL){
+            if(isRumput()){
+                F->makan();
+            }
+        }
+        return;
+    }
+
+    if (type == removeAnimal){
+        FarmAnimal* F = getAnimal();
+        delete F;
+        setAnimal(NULL);
+        return;
+    }
+    
+    if (type == checkAnimal){
+        FarmAnimal* F = getAnimal();
+        if(F != NULL){
+            F->updateLivingTime();
+            if(F->getLivingTime() == 0){
+                delete F;
+                setAnimal(NULL);
+            }
+        }
+        return;
+    }
+    
+}
+
+void Land::interactCell(){
+    FarmAnimal* F = getAnimal();
+    Player* P = getPlayer();
+    if(F != NULL){
+        P->interact(*F);
+    }
 }

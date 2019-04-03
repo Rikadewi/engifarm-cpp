@@ -1,38 +1,57 @@
 #include "gameengine.h"
 
+int GameEngine::getXPlayer(){
+    return XPlayer;
+}
+
+int GameEngine::getYPlayer() {
+    return YPlayer;
+}
+
+Player* GameEngine::getEngi(){
+    return world[XPlayer][YPlayer]->getPlayer();
+}
+
 GameEngine::GameEngine(){
     tick = 0;
+    //Inisialisasi dunia dan set semua petak menjadi graassland
     for(int i=0;i<WORLDSIZE;i++){
         world[i]=new Cell*[WORLDSIZE];
     }
     for(int i=0;i<WORLDSIZE;i++){
         for(int j=0; j<WORLDSIZE; j++){
-            if ((i!=18)&&((j!=3)||(j!=9)||(j!=16))){
-                // Land l;
-                // world[i][j] = &l;
-            }
+            if ( i != 12 || ((j!=3)&&(j!=9)&&(j!=16))){
+                Land* l;
+                *l->setType(grassLand);
+                world[i][j] = l;
+                world[i][j]->setType(land);      
+            } 
         }
     }
-    for(int i=1;i<10;i++){
-        for(int j=1; j<10;j++){
-            // world[i][j] -> setType(coop);
-        }
-        for(int j=9; j<18;j++){
-            // world[i][j] -> setType(grassLand);
+
+    //Membuat Coop
+    for(int i=0;i<4;i++){
+        for(int j=1; j<4;j++){
+            coop* c;
+            world[i][j] = c;
         }
     }
-    for(int i=10;i<16;i++){
-        // for(int j=1; j<){
-            
-        // }
+
+    //Membuat Barn
+    for(int i=0;i<7;i++){
+        for(int j=5; j<10;j++){
+            barn *b;
+            world[i][j] = b;
+        }
     }
-    int i=18;
+    
+    //Menetapkan Facility
     Mixer m;
     Well w;
     Truck t;
-    world[i][3] = &m;
-    world[i][8] = &w;
-    world[i][16]= &t;
+    world[0][12] = &m;
+    world[1][12] = &w;
+    world[2][12]= &t;
 }
 
 int GameEngine::look(int i, int j){
@@ -62,7 +81,7 @@ List<int> GameEngine::lookAround(int x, int y){
 
 void GameEngine::handleInteract(){
     //Mendapatkan list yang berisi objek disekitarnya
-    List<int> around = lookAround(engi.getX(),engi.getY());
+    List<int> around = lookAround(XPlayer,YPlayer);
     bool foundAnimal= false;
     bool foundFacility = false;
     int i=0;
@@ -70,24 +89,26 @@ void GameEngine::handleInteract(){
         //jika animal
         if(around.getElmt(i)>=1 && around.getElmt(i)<=10){
             foundAnimal = true;
-        }else{ 
-            if (around.getElmt(i)>=19 && around.getElmt(i)<=21){ //facility
-                foundFacility=true;
-            }else{
-                i++;
-            }
+        }else if (around.getElmt(i)>=19 && around.getElmt(i)<=21){ //facility
+            foundFacility=true;
+        }else{
+            i++;
         }
     }
 
     if (foundAnimal){
-        FarmAnimal* temp = world[engi.getX()-1][engi.getY()]->getAnimal();
-        engi.interact(*temp);
+        FarmAnimal* temp = world[XPlayer-1][YPlayer]->getAnimal();
+        getEngi()->interact(*temp);
     }
 
     if(foundFacility){
         int id = around.getElmt(i);
         if(around.getElmt(i)==19){//well
-            
+            getEngi()->interactWell();
+        }else if (around.getElmt(i)==20){//mixer
+            getEngi()->interactMixer();
+        }else if (around.getElmt(i)==21){//truck
+            getEngi()->interactTruck();
         }        
     }
     
@@ -125,60 +146,111 @@ void GameEngine::handleMoveAnimal(int x, int y){
     }
     if(found){
         if (i==0){//utara (x-1)(y)
-            f->setX(x-1);
+            world[x][y]->setAnimal(NULL);
+            world[x-1][y]->setAnimal(*f);
         }else if (i==1){ //timur (x)(y+1)
-            f->setY(y+1);
+            world[x][y]->setAnimal(NULL);
+            world[x][y+1]->setAnimal(*f);
         }else if (i==2){//selatan (x+1)(y)
-            f->setX(x+1);
+            world[x][y]->setAnimal(NULL);
+            world[x+1][y]->setAnimal(*f);
         }else if (i==3){//barat (x)(y-1)
-            f->setY(y-1);
+            world[x][y]->setAnimal(NULL);
+            world[x][y-1]->setAnimal(*f);
         }
     }else{
         throw "Tidak ada space";
     }
 }
 
+//BELOM IMPLEMENTASI
 void GameEngine::handleMove(int n){
-    List<int> around = lookAround(engi.getX(), engi.getY());
+    List<int> around = lookAround(XPlayer, YPlayer);
     bool found = false;
     int i = 0;
-    while ((!found) && (i<4)){
-        if((around.getElmt(i))>=13 && (around.getElmt(i))<=18){
-            found = true;
+
+    if (n==1){//atas
+        if((around.getElmt(0))>=13 && (around.getElmt(0))<=18){
+            XPlayer--;
+        }
+        else{
+            throw "Tidak dapat melakukan move";
+        }
+    } else if (n==2){//kanan
+        if((around.getElmt(1))>=13 && (around.getElmt(1))<=18){
+            YPlayer++;
+        }
+        else{
+            throw "Tidak dapat melakukan move";
+        }
+    } else if (n==3){//kanan
+        if((around.getElmt(2))>=13 && (around.getElmt(2))<=18){
+            XPlayer++;
+        }
+        else{
+            throw "Tidak dapat melakukan move";
+        }
+    } else if (n==4){//kanan
+        if((around.getElmt(3))>=13 && (around.getElmt(3))<=18){
+            YPlayer--;
+        }
+        else{
+            throw "Tidak dapat melakukan move";
+        }
+    }
+}
+
+void GameEngine::handleGrow(){
+    world[getXPlayer()][getYPlayer()]->updateCell(grow);
+}
+
+void GameEngine::handleTalk(){
+    List<int> around = lookAround(XPlayer, YPlayer);
+    if(around.getElmt(0)>=1 && around.getElmt(0)<=12){
+        FarmAnimal* temp = world[XPlayer-1][YPlayer]->getAnimal();
+        getEngi()->talk(*temp);
+    }else if(around.getElmt(1)>=1 && around.getElmt(1)<=12){
+        FarmAnimal* temp = world[XPlayer][YPlayer+1]->getAnimal();
+        getEngi()->talk(*temp);
+    }else if(around.getElmt(2)>=1 && around.getElmt(2)<=12){
+        FarmAnimal* temp = world[XPlayer+1][YPlayer]->getAnimal();
+        getEngi()->talk(*temp);
+    }else if(around.getElmt(3)>=1 && around.getElmt(3)<=12){
+        FarmAnimal* temp = world[XPlayer][YPlayer+1]->getAnimal();
+        getEngi()->talk(*temp);
+    }
+}
+
+void GameEngine::handleKill(){
+    List<int> around = lookAround(XPlayer, YPlayer);
+    bool hasKill = false;
+    int i = 0;
+    while (!hasKill && i<4){
+        //penghasil daging id = 1 2 3 4 5 6 11 12
+        if((around.getElmt(i)>=1 && around.getElmt(i)<=6) || around.getElmt(i)==11 || around.getElmt(i)==12){
+            hasKill=true;
         }else{
             i++;
         }
     }
-    if(found){
-        throw "Tidak ada Space";
-    }else{
-        //problem dlm 1 petak ada land ada living things
-        int x, y;
-        engi.cekPosisi(i, x, y);
-        engi.setX(x);
-        engi.setY(y);
+    if (i==0){//kill animal utara
+        FarmAnimal *temp = world[XPlayer-1][YPlayer]->getAnimal();
+        getEngi()->kill(*temp);
+        world[XPlayer-1][YPlayer]->updateCell(removeAnimal);
+    }else if (i==1){ //kill animal timur
+        FarmAnimal *temp = world[XPlayer][YPlayer+1]->getAnimal();
+        getEngi()->kill(*temp);
+        world[XPlayer][YPlayer+1]->updateCell(removeAnimal);
+    }else if (i==2){ //kill animal selatan
+        FarmAnimal *temp = world[XPlayer+1][YPlayer]->getAnimal();
+        getEngi()->kill(*temp);
+        world[XPlayer+1][YPlayer]->updateCell(removeAnimal);
+    }else if (i==3){ //kill animal barat
+        FarmAnimal *temp = world[XPlayer][YPlayer-1]->getAnimal();
+        getEngi()->kill(*temp);
+        world[XPlayer][YPlayer-1]->updateCell(removeAnimal);
     }
-}
 
-void GameEngine::handleTalk(){
-    List<int> around = lookAround(engi.getX(), engi.getY());
-    if(around.getElmt(0)>=1 && around.getElmt(0)<=12){
-        FarmAnimal* temp = world[engi.getX()-1][engi.getY()]->getAnimal();
-        engi.talk(*temp);
-    }else if(around.getElmt(1)>=1 && around.getElmt(1)<=12){
-        FarmAnimal* temp = world[engi.getX()][engi.getY()+1]->getAnimal();
-        engi.talk(*temp);
-    }else if(around.getElmt(2)>=1 && around.getElmt(2)<=12){
-        FarmAnimal* temp = world[engi.getX()+1][engi.getY()]->getAnimal();
-        engi.talk(*temp);
-    }else if(around.getElmt(3)>=1 && around.getElmt(3)<=12){
-        FarmAnimal* temp = world[engi.getX()][engi.getY()+1]->getAnimal();
-        engi.talk(*temp); 
-    }
-}
-
-void GameEngine::handleMakan(int x, int y){
-    world[engi.getX()-1][engi.getY()]->
 }
 
 int GameEngine::getID(int i,int j){
@@ -195,11 +267,13 @@ void GameEngine::updateGame(){
                 //Gerakan Animal Tsb   
                 handleMoveAnimal(i,j);
                 //Bikin Animal tsb makan
-                handleMakan(i,j);
+                world[i][j]->updateCell(makan);
+                //kurangin living time, sekaligus bunuh yang mati
+                world[i][j]->updateCell(checkAnimal);
             }
             else if (getID(i,j) == 21 ){ //Jika merupakan truck
                 //Ubah keadaan trucknya
-                world[i][j]->updateCell();
+                world[i][j]->updateCell(readyTruck);
             }
             //Kasus lain???
         }

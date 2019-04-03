@@ -4,16 +4,17 @@
 #include "Cell/Header/mixer.h"
 #include "Cell/Header/truck.h"
 #include "Cell/Header/well.h"
-#include "LivingThings/Header/player.h"
+#include "Player/Header/player.h"
 #include "List/list.h"
 #include "Cell/Header/facility.h"
-#define WORLDSIZE 20
+#define WORLDSIZE 13
 
 class GameEngine{
     private:
         Cell** world[WORLDSIZE];
-        Player engi;      
         int tick;
+        int XPlayer;
+        int YPlayer;
     public:
         GameEngine();
         List<int> lookAround(int,int); //utara , timur, selatan, barat
@@ -27,4 +28,10 @@ class GameEngine{
         void updateGame(); //nambahTick, ngubah posisi animal, ngubah avaibality truck
         void printWorld();
         int getID(int,int);
+        int getXPlayer();
+        int getYPlayer();
+        void setXPlayer();
+        void setYPlayer();
+        Player* getEngi();
+        FarmAnimal* getAnimalAt(int x, int y);
 }

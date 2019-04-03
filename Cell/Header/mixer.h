@@ -15,11 +15,8 @@
 class Mixer : public Facility{
 public:
     int render(); //mengembalikan char yang akan diprint pada map
-    SideProduct mix(ChickenEgg , CowMeat); //menghasilkan beefomellete, mengurangi jumlah ChickenEgg dan CowMeat masing-masing satu.
-    SideProduct mix(PlatypusEgg , CowMilk); //menghasilkan platycow pancake, mengurangi jumlah PlatypusEgg dan CowMilk masing-masing satu
-    SideProduct mix(ChickenMeat , PlatypusMilk); //menghasilkan plachick soup, mengurangi jumlah PlatypusMilk dan ChickenEgg masing-masing satu.
-    void updateCell();
-
+    void updateCell(UpdateType);
+    void interactCell();
 };
 
 #endif

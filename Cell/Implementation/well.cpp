@@ -4,6 +4,10 @@ int Well::render(){
     return 19;
 }
 
-void Well::updateCell(){
-    
+void Well::updateCell(UpdateType){
+    //do nothing
+}
+
+void Well::interactCell(){
+    engi->interactWell();
 }

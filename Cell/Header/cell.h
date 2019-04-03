@@ -2,13 +2,16 @@
 #ifndef CELL_H
 #define CELL_H
 
-#include "../../LivingThings/Header/farmanimal.h"
+#include "../../FarmAnimal/Header/farmanimal.h"
+#include "../../Player/Header/player.h"
 
 enum CellType {land, facility};
+enum UpdateType {makan, grow, readyTruck, removeAnimal, checkAnimal};
 
 class Cell{
-    private:
+    protected:
         CellType type;
+        Player* engi;
     public:
         //0 untuk out of bound
         //1-12 untuk farm animal (ganjil laper, genap kenyang)
@@ -30,11 +33,12 @@ class Cell{
         //22 untuk player
         virtual int render() = 0;
         CellType getType();
-        virtual void updateCell() = 0;
+        virtual void updateCell(UpdateType) = 0;
         void setType(CellType);
         virtual FarmAnimal* getAnimal() = 0;
-
-        
+        Player* getPlayer();
+        void setPlayer(Player*);
+        virtual void interactCell() = 0;
         //throw "Can't set Facility" jika type cell facility
         virtual void setAnimal(FarmAnimal*) = 0;
 };
