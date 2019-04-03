@@ -14,7 +14,7 @@ class Cell{
         //1-12 untuk farm animal (ganjil laper, genap kenyang)
         //egg and milk producing? ada brpa?
         //1-2 Chicken Kampung -- egg, meat
-        //3-4 ChickenJago -- Egg , Meat
+        //3-4 ChickenJago -- Meat
         //5-6 Cow -- milk, meat
         //7-8 Golden Platypus -- egg,milk
         //9-10 Platypus -- egg,milk

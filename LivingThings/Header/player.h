@@ -22,9 +22,7 @@ class Player : public LivingThings {
         long money; //menyimpang uang dari player
     public:
         //ctor
-        Player(); 
-        //berpindah ke cell yang bertipe land, throw "Tidak ada space" jika di sekeliling player tidak ada land
-        void move(); 
+        Player();  
         
         //menerima input Farm Animal
         //mencetak di layar suara animal tersebut

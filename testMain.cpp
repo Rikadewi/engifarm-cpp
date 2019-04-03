@@ -1,4 +1,3 @@
-eat;
     // CowMilk cowmilk;
     // BeefOmellete beefomellete;
     // List<Product> ProductList(10);

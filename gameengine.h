@@ -1,4 +1,9 @@
 #include "Cell/Header/cell.h"
+#include "Cell/Header/land.h"
+#include "Cell/Header/facility.h"
+#include "Cell/Header/mixer.h"
+#include "Cell/Header/truck.h"
+#include "Cell/Header/well.h"
 #include "LivingThings/Header/player.h"
 #include "List/list.h"
 #include "Cell/Header/facility.h"
@@ -14,7 +19,7 @@ class GameEngine{
         List<int> lookAround(int,int); //utara , timur, selatan, barat
         int look(int,int);
         void handleMove(int); //1 = atas, 2 = kanan, 3 = bawah, 4 = kiri
-        void handleMoveAnimal();
+        void handleMoveAnimal(int,int);
         void handleTalk();
         void handleInteract();
         void handleKill();

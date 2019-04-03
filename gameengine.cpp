@@ -5,6 +5,34 @@ GameEngine::GameEngine(){
     for(int i=0;i<WORLDSIZE;i++){
         world[i]=new Cell*[WORLDSIZE];
     }
+    for(int i=0;i<WORLDSIZE;i++){
+        for(int j=0; j<WORLDSIZE; j++){
+            if ((i!=18)&&((j!=3)||(j!=9)||(j!=16))){
+                Land l;
+                world[i][j] = &l;
+            }
+        }
+    }
+    for(int i=1;i<10;i++){
+        for(int j=1; j<10;j++){
+            world[i][j] -> setType(coop);
+        }
+        for(int j=9; j<18;j++){
+            world[i][j] -> setType(grassLand);
+        }
+    }
+    for(int i=10;i<16;i++){
+        for(int j=1; j<){
+            
+        }
+    }
+    int i=18;
+    Mixer m;
+    Well w;
+    Truck t;
+    world[i][3] = &m;
+    world[i][8] = &w;
+    world[i][16]= &t;
 }
 
 int GameEngine::look(int i, int j){
@@ -35,21 +63,67 @@ List<int> GameEngine::lookAround(int x, int y){
 void GameEngine::handleInteract(){
     //Mendapatkan list yang berisi objek disekitarnya
     List<int> around = lookAround(engi.getX(),engi.getY());
-    //Cek atas
-    
+    bool found = false;
+    int i=0;
+    while ((!found) && (i<4)){
+        //jika animal
+        if(around.getElmt(i)>=1 && around.getElmt(i)<=10){
+            found = true;
+        }
+    }
     if(around.getElmt(0)!=0){
         if(around.getElmt(0)>=1 && around.getElmt(0)<=10){ //Animal penghasil egg dan milk
             FarmAnimal* temp = world[engi.getX()-1][engi.getY()]->getAnimal();
             engi.interact(*temp);            
-            
         }
+        else if(around.getElmt(0)>=1 && around.getElmt(0)<=10)
     }
     
 
 }
 
-void GameEngine::handleMoveAnimal(){
-    
+void GameEngine::handleMoveAnimal(int x, int y){
+    List <int> around = lookAround(x,y);
+    FarmAnimal* f = world[x][y]->getAnimal();
+    bool found = false;
+    int i = 0;
+    while ((!found)&&(i<4)){
+        //penghasil telur move bisa ke coop 15 16
+        if(f->isEgg()){ 
+            if(around.getElmt(i)==15 || around.getElmt(i)==16){
+                found = true;
+            }
+        }
+         //penghasil daging move bisa ke barn 13 14
+        if(f->isMeat()){
+            if(around.getElmt(i)==13 || around.getElmt(i)==14){
+                found = true;
+            }
+        }
+        //move bisa ke grassland 17 18
+        if(f->isMilk()){
+            if(around.getElmt(i)==17 || around.getElmt(i)==18){
+                found = true;
+            }
+        }
+
+        if(!found && i<4){
+            i++;
+        }
+    }
+    if(found){
+        if (i==0){//utara (x-1)(y)
+            f->setX(x-1);
+        }else if (i==1){ //timur (x)(y+1)
+            f->setY(y+1);
+        }else if (i==2){//selatan (x+1)(y)
+            f->setX(x+1);
+        }else if (i==3){//barat (x)(y-1)
+            f->setY(y-1);
+        }
+    }else{
+        throw "Tidak ada space";
+    }
 }
 
 void GameEngine::handleMove(int n){
@@ -79,7 +153,20 @@ void GameEngine::handleTalk(){
     if(around.getElmt(0)>=1 && around.getElmt(0)<=12){
         FarmAnimal* temp = world[engi.getX()-1][engi.getY()]->getAnimal();
         engi.talk(*temp);
+    }else if(around.getElmt(1)>=1 && around.getElmt(1)<=12){
+        FarmAnimal* temp = world[engi.getX()][engi.getY()+1]->getAnimal();
+        engi.talk(*temp);
+    }else if(around.getElmt(2)>=1 && around.getElmt(2)<=12){
+        FarmAnimal* temp = world[engi.getX()+1][engi.getY()]->getAnimal();
+        engi.talk(*temp);
+    }else if(around.getElmt(3)>=1 && around.getElmt(3)<=12){
+        FarmAnimal* temp = world[engi.getX()][engi.getY()+1]->getAnimal();
+        engi.talk(*temp); 
     }
+}
+
+void GameEngine::handleMakan(int x, int y){
+
 }
 
 int GameEngine::getID(int i,int j){
@@ -94,10 +181,12 @@ void GameEngine::updateGame(){
         for(int j =0 ; j<WORLDSIZE; j++){
             if(getID(i,j) < 13) { //Jika merupakan animal
                 //Gerakan Animal Tsb   
-                handleMoveAnimal();
+                handleMoveAnimal(i,j);
+                handleMakan(i,j);
             }
             else if (getID(i,j) == 21 ){ //Jika merupakan truck
                 //Ubah keadaan trucknya
+                if(world[i][j]->)
             }
             //Kasus lain???
         }

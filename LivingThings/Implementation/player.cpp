@@ -24,27 +24,7 @@ void Player::cekPosisi (int i, int& x, int& y){
     }
 }
 
-void Player::move(){
-    // List<int> around = lookAround();
-    // bool found = false;
-    // int i = 0;
-    // while ((!found) && (i<4)){
-    //     if(isLand(around.get(i))){
-    //         found = true;
-    //     }else{
-    //         i++;
-    //     }
-    // }
-    // if(!found){
-    //     throw "Tidak ada Space";
-    // }else{
-    //     //problem dlm 1 petak ada land ada living things
-    //     int x, y;
-    //     cekPosisi(i, x, y);
-    //     setX(x);
-    //     setY(y);
-    // }
-}
+
 
 void Player::talk(FarmAnimal& F){
     // List<int> around = lookAround();
