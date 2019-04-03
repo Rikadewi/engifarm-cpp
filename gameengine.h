@@ -34,4 +34,4 @@ class GameEngine{
         void setYPlayer();
         Player* getEngi();
         FarmAnimal* getAnimalAt(int x, int y);
-}
+};

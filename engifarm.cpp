@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 
+void printMap(){
+    
+}
 
 int main(){
     std::cout << "Rika's Farm" <<std::endl;
@@ -15,6 +18,10 @@ int main(){
     std::string command;
     bool gameOver = false;
     while(!gameOver){
+        
+
+
+
         std::cout<< "Command : " ;
         std::cin >> command;
         if(command.compare("TALK")==0){

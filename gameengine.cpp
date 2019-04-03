@@ -22,7 +22,7 @@ GameEngine::GameEngine(){
         for(int j=0; j<WORLDSIZE; j++){
             if ( i != 12 || ((j!=3)&&(j!=9)&&(j!=16))){
                 Land* l;
-                *l->setType(grassLand);
+                l->setType(grassLand);
                 world[i][j] = l;
                 world[i][j]->setType(land);      
             } 
@@ -32,16 +32,18 @@ GameEngine::GameEngine(){
     //Membuat Coop
     for(int i=0;i<4;i++){
         for(int j=1; j<4;j++){
-            coop* c;
-            world[i][j] = c;
+            //Butuh bikin Coop!
+            // coop* c;
+            // world[i][j] = c;
         }
     }
 
     //Membuat Barn
     for(int i=0;i<7;i++){
         for(int j=5; j<10;j++){
-            barn *b;
-            world[i][j] = b;
+            //Butuh bikin barn!
+            // barn *b;
+            // world[i][j] = b;
         }
     }
     
@@ -147,16 +149,16 @@ void GameEngine::handleMoveAnimal(int x, int y){
     if(found){
         if (i==0){//utara (x-1)(y)
             world[x][y]->setAnimal(NULL);
-            world[x-1][y]->setAnimal(*f);
+            world[x-1][y]->setAnimal(f);
         }else if (i==1){ //timur (x)(y+1)
             world[x][y]->setAnimal(NULL);
-            world[x][y+1]->setAnimal(*f);
+            world[x][y+1]->setAnimal(f);
         }else if (i==2){//selatan (x+1)(y)
             world[x][y]->setAnimal(NULL);
-            world[x+1][y]->setAnimal(*f);
+            world[x+1][y]->setAnimal(f);
         }else if (i==3){//barat (x)(y-1)
             world[x][y]->setAnimal(NULL);
-            world[x][y-1]->setAnimal(*f);
+            world[x][y-1]->setAnimal(f);
         }
     }else{
         throw "Tidak ada space";
