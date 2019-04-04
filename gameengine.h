@@ -7,11 +7,12 @@
 #include "Player/Header/player.h"
 #include "List/list.h"
 #include "Cell/Header/facility.h"
+#include <string>
 #define WORLDSIZE 13
 
 class GameEngine{
     private:
-        Cell** world[WORLDSIZE];
+        Cell*** world;
         int tick;
         int XPlayer;
         int YPlayer;
@@ -32,6 +33,14 @@ class GameEngine{
         int getYPlayer();
         void setXPlayer();
         void setYPlayer();
+
+        //Method Menampilkan Ke Layar
+        void renderer(int);
+        void printMap();
+        void printMessage(string);
+
+        //Getter untuk class yang dimiliki cell
         Player* getEngi();
         FarmAnimal* getAnimalAt(int x, int y);
+        Cell*** getWorld();
 };

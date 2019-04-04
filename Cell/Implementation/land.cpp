@@ -1,5 +1,5 @@
 #include "../Header/land.h"
-
+Land::Land(){}
 Land::Land(bool rumput, FarmAnimal* animal, LandType type){
     this->rumput = rumput;
     this->animal = animal;
@@ -7,6 +7,7 @@ Land::Land(bool rumput, FarmAnimal* animal, LandType type){
 }
 
 int Land::render(){
+
     if(getPlayer() == NULL){
         if(getAnimal() == NULL){
             if(type == barn){

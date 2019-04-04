@@ -1,4 +1,11 @@
+#include<iostream>
 #include "gameengine.h"
+using namespace std;
+
+Cell*** GameEngine::getWorld() {
+    return world;
+}
+
 
 int GameEngine::getXPlayer(){
     return XPlayer;
@@ -14,46 +21,45 @@ Player* GameEngine::getEngi(){
 
 GameEngine::GameEngine(){
     tick = 0;
+    world = new Cell**[WORLDSIZE];
     //Inisialisasi dunia dan set semua petak menjadi graassland
     for(int i=0;i<WORLDSIZE;i++){
         world[i]=new Cell*[WORLDSIZE];
     }
     for(int i=0;i<WORLDSIZE;i++){
-        for(int j=0; j<WORLDSIZE; j++){
-            if ( i != 12 || ((j!=3)&&(j!=9)&&(j!=16))){
-                Land* l;
-                l->setType(grassLand);
-                world[i][j] = l;
-                world[i][j]->setType(land);      
+        for(int j=0; j<WORLDSIZE; j++){ 
+            // if ( j != 12 || ((i!=0)&&(i!=1)&&(i!=2)))
+            {
+                world[i][j] = new Land(true,NULL,grassLand);
             } 
         }
     }
 
     //Membuat Coop
-    for(int i=0;i<4;i++){
-        for(int j=1; j<4;j++){
-            //Butuh bikin Coop!
-            // coop* c;
-            // world[i][j] = c;
-        }
-    }
+    // for(int i=0;i<4;i++){
+    //     for(int j=1; j<4;j++){
+    //         //Butuh bikin Coop!
+    //         // coop* c;
+    //         // world[i][j] = c;
+    //     }
+    // }
 
-    //Membuat Barn
-    for(int i=0;i<7;i++){
-        for(int j=5; j<10;j++){
-            //Butuh bikin barn!
-            // barn *b;
-            // world[i][j] = b;
-        }
-    }
+    // //Membuat Barn
+    // for(int i=0;i<7;i++){
+    //     for(int j=5; j<10;j++){
+    //         //Butuh bikin barn!
+    //         // barn *b;
+    //         // world[i][j] = b;
+    //     }
+    // }
     
-    //Menetapkan Facility
-    Mixer m;
-    Well w;
-    Truck t;
-    world[0][12] = &m;
-    world[1][12] = &w;
-    world[2][12]= &t;
+    //Menetapkan Facility MASIH SALAH NARONYA, MIXER WELL TRUCK BUTUH CONSTRUCTOR
+    // Mixer m;
+    // Well w;
+    // Truck t;
+    // world[0][12] = &m;
+    // world[1][12] = &w;
+    // world[2][12]= &t;
 }
 
 int GameEngine::look(int i, int j){
@@ -279,6 +285,92 @@ void GameEngine::updateGame(){
             }
             //Kasus lain???
         }
+    }       
+}
+void GameEngine::renderer(int n){
+    switch (n)
+    {   
+        case 0 : //Out of Bounds
+
+            break;
+        case 1 : //Chicken Kampung
+
+            break;
+        case 2 : 
+
+            break;
+        case 3 : //Chicken Jago
+
+            break;
+        case 4 : 
+
+            break;
+        case 5 : //Cow
+
+            break;
+        case 6 :
+
+            break;
+        case 7 : // Golden Platypus
+
+            break;
+        case 8 : 
+
+            break;
+        case 9 : // Platypus
+
+            break;
+        case 10 :
+
+            break;
+        case 11 : //Bull
+
+            break;
+        case 12 :
+
+            break;
+        case 13 : //Barn
+
+            break;
+        case 14 :
+
+            break;
+        case 15 : //Coop
+
+            break;
+        case 16 :
+
+            break;
+        case 17: //GrassLand Ga Berumput
+            break;
+        case 18: //GrassLand Berumput
+            cout << "\033[42m" << 'G' << " \033[0m"; //Print Kotak background Hijau
+            break;
+        default:
+            break;
+        case 19 : //Well
+
+            break;
+        case 20 : //Mixer
+
+            break;
+        case 21 : //Truck
+
+            break;
+        case 22 : //player
+
+            break;
     }
-        
+}
+//Fungsi untuk print Map
+void GameEngine::printMap(){
+    for (int i = 0; i<WORLDSIZE; i++){
+        for(int j=0; j<WORLDSIZE; j++){
+            renderer(world[i][j]->render());
+        }
+        cout << endl;
+    }
+}
+void GameEngine::printMessage(string msg) {
+    cout<< msg << endl;
 }

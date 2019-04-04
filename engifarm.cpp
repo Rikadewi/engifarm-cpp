@@ -1,9 +1,15 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
+#include "gameengine.h"
+//Included Libraries
+// #include "restoran.h"
+// #include <ncurses.h>
 
-void printMap(){
-    
-}
+using namespace std;
+
+
+
 
 int main(){
     std::cout << "Rika's Farm" <<std::endl;
@@ -14,14 +20,24 @@ int main(){
     std::cout << "Vivianni / 13517060" <<std::endl;
     std::cout << "Gardahadi / 13517144" <<std::endl;
     std::cout << "Rika Dewi / 13517147" <<std::endl;
-
     std::string command;
-    bool gameOver = false;
+    cout << "Silahkan Input sesuatu untuk mulai" << endl;
+    cin >> command;
+
+    /*****************************
+    Inisialisasi Objek-objek Game
+    *****************************/
+    bool gameOver = false; 
+    GameEngine G;
+    string Message = "Welcome To Engi's Kitchen, click HELP for a list of commands";
+
     while(!gameOver){
-        
 
-
-
+        //Clear Screen and print Map
+        system("clear");        
+        G.printMap();
+        std::cout<< "Message : ";
+        G.printMessage(Message);
         std::cout<< "Command : " ;
         std::cin >> command;
         if(command.compare("TALK")==0){
@@ -48,6 +64,10 @@ int main(){
         else if(command.compare("GR")==0){
             
         }
+        else if (command.compare("EXIT") == 0) {
+            gameOver = true;
+        }
+        
     }
 
     return 0;
