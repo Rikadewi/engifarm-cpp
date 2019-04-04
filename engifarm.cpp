@@ -8,9 +8,6 @@
 
 using namespace std;
 
-
-
-
 int main(){
     std::cout << "Rika's Farm" <<std::endl;
     std::cout << "A Game build with C++ using Object Oriented Paradigm" <<std::endl;
@@ -69,6 +66,5 @@ int main(){
         }
         
     }
-
     return 0;
 }

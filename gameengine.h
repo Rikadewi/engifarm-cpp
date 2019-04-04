@@ -20,6 +20,8 @@ class GameEngine{
         GameEngine();
         List<int> lookAround(int,int); //utara , timur, selatan, barat
         int look(int,int);
+
+        //Handler Functions
         void handleMove(int); //1 = atas, 2 = kanan, 3 = bawah, 4 = kiri
         void handleMoveAnimal(int,int);
         void handleTalk();
@@ -28,19 +30,22 @@ class GameEngine{
         void handleGrow();
         void updateGame(); //nambahTick, ngubah posisi animal, ngubah avaibality truck
         void printWorld();
-        int getID(int,int);
-        int getXPlayer();
-        int getYPlayer();
-        void setXPlayer();
-        void setYPlayer();
 
         //Method Menampilkan Ke Layar
         void renderer(int);
         void printMap();
         void printMessage(string);
-
-        //Getter untuk class yang dimiliki cell
+        void printKeterangan(int);
+        void printKeadaan(string);
+        
+        //Getter 
+        int getXPlayer();
+        int getYPlayer();
+        int getID(int,int);
         Player* getEngi();
         FarmAnimal* getAnimalAt(int x, int y);
         Cell*** getWorld();
+        //Setter
+        void setXPlayer();
+        void setYPlayer();
 };

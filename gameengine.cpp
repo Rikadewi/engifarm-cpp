@@ -366,11 +366,28 @@ void GameEngine::renderer(int n){
 void GameEngine::printMap(){
     for (int i = 0; i<WORLDSIZE; i++){
         for(int j=0; j<WORLDSIZE; j++){
-            renderer(world[i][j]->render());
+            renderer(getID(i,j));
         }
+        cout << " "; //Kasih Spasi
+        printKeterangan(i);
         cout << endl;
     }
 }
 void GameEngine::printMessage(string msg) {
     cout<< msg << endl;
+}
+
+void GameEngine::printKeterangan(int n){
+    switch (n)
+    {
+        case 0:
+            cout << "Keterangan :";
+            break;
+        default:
+            break;
+    }
+}
+
+void GameEngine::printKeadaan(string Name){
+    cout << "Nama Player " << Name;
 }
