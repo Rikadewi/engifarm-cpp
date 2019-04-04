@@ -11,7 +11,7 @@ public:
 	//konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 	Cow();
 	//prosedur Bersuara menuliskan suara Cow ke layar
-	void bersuara();
+	string bersuara();
 	FarmProduct getProduct(bool);
 	FarmProduct kill();
 	int getId();

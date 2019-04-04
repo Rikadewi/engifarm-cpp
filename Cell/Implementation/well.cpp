@@ -1,5 +1,8 @@
 #include "../Header/well.h"
 
+Well::Well(){
+}
+
 int Well::render(){
     return 19;
 }

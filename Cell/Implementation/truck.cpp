@@ -1,5 +1,9 @@
 #include "../Header/truck.h"
 
+Truck::Truck(){
+    ready=0;
+}
+
 void Truck::setNotReady(){
     ready = MAXREADY;
 }

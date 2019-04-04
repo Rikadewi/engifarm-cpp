@@ -5,6 +5,9 @@
 #include "../../Product/Header/farmproduct.h"
 #include <iostream>
 #include <cstdlib>
+#include <ostream>
+#include <cstring>
+
 
 #define default_living_time 5
 
@@ -37,7 +40,7 @@ public:
 	//prosedur get living time
 	int getLivingTime();
 	//deklarasi fungsi pure virtual
-	virtual void bersuara() = 0;
+	virtual string bersuara() = 0;
 	//prosedur move animal
 	// bool is_safe_to_move(int);
 	// void move();

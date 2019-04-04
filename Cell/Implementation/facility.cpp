@@ -1,7 +1,5 @@
 #include "../Header/facility.h"
 
-
-
 FarmAnimal* Facility::getAnimal(){
     return NULL;
 }

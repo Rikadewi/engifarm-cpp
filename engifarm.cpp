@@ -18,52 +18,82 @@ int main(){
     std::cout << "Gardahadi / 13517144" <<std::endl;
     std::cout << "Rika Dewi / 13517147" <<std::endl;
     std::string command;
-    cout << "Silahkan Input sesuatu untuk mulai" << endl;
+    cout << "Silahkan input Nama Player lalu tekan entar" << endl;
     cin >> command;
-
+    
     /*****************************
     Inisialisasi Objek-objek Game
     *****************************/
     bool gameOver = false; 
+    string Name = command;
     GameEngine G;
-    string Message = "Welcome To Engi's Kitchen, click HELP for a list of commands";
+    string message = "Welcome To Engi's Farm, click HELP for a list of commands";
 
+    /**************************
+    Looping Utama Main Program
+    ***************************/
     while(!gameOver){
 
-        //Clear Screen and print Map
-        system("clear");        
+        //Clear Screen 
+        system("clear");
+        G.printKeadaan(Name);        
         G.printMap();
         std::cout<< "Message : ";
-        G.printMessage(Message);
+        G.printMessage(message);
         std::cout<< "Command : " ;
         std::cin >> command;
-        if(command.compare("TALK")==0){
+        
+        try
+        {
+            /* Do Commands */
+            if(command.compare("TALK")==0){
+                message = G.handleTalk();
+            }        
+        
+            else if(command.compare("GROW")==0){
+                G.handleGrow();   
+            }
+             
+            else if(command.compare("KILL")==0){
+                G.handleKill();
+            }
+            
+            else if(command.compare("INTERACT")==0){
+                G.handleInteract();
+            }
+            
+            else if(command.compare("GL")==0){
+                G.handleMove(4);
+                message = Name + " telah bergerak satu petak!";
+            }
+            
+            else if(command.compare("GD")==0){
+                G.handleMove(3);
+                message = Name + " telah bergerak satu petak!";
+            }
+            else if(command.compare("GU")==0){
+                    G.handleMove(1);
+                    message = Name + " telah bergerak satu petak!";
+            }
+            
+            else if(command.compare("GR")==0){
+                    G.handleMove(2);
+                    message = Name + " telah bergerak satu petak!";
+            }
+            else if (command.compare("EXIT") == 0) {
+                gameOver = true;
+            }
 
+            G.updateGame();
         }
-        else if(command.compare("GROW")==0){
-            
+        
+        catch(const char* errorMessage)
+        {
+            messasge = errorMessage;
         }
-        else if(command.compare("KILL")==0){
-            
-        }
-        else if(command.compare("INTERACT")==0){
-            
-        }
-        else if(command.compare("GL")==0){
-            
-        }
-        else if(command.compare("GD")==0){
-            
-        }
-        else if(command.compare("GU")==0){
-            
-        }
-        else if(command.compare("GR")==0){
-            
-        }
-        else if (command.compare("EXIT") == 0) {
-            gameOver = true;
-        }
+        
+        
+        
         
     }
     return 0;

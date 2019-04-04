@@ -14,6 +14,7 @@
 //mixer merupakan turunan dari facility
 class Mixer : public Facility{
 public:
+    Mixer();
     int render(); //mengembalikan int yang akan menjadi id 
     void updateCell(UpdateType);
     void interactCell();

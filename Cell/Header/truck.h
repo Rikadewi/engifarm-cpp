@@ -10,6 +10,7 @@
 
 class Truck : public Facility{
 public:
+    Truck();
     void setNotReady();
     int render(); //mengembalikan char yang akan diprint pada map
     bool isAvailable(); //mengembalikan true jika truck bisa dipakai

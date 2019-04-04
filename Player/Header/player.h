@@ -24,7 +24,7 @@ class Player{
         
         //menerima input Farm Animal
         //mencetak di layar suara animal tersebut
-        void talk(FarmAnimal& F); 
+        string talk(FarmAnimal* F); 
         
         
         //hasil penjualan akan ditambahkan ke money
@@ -46,7 +46,7 @@ class Player{
         //throw exception jika animal lapar
         //throw "Bukan meat producing animal" jika input bukan meat producing animal
         //throw "Inventory penuh" jika inventory penuh
-        void kill(FarmAnimal& F); 
+        void kill(FarmAnimal *F); 
 
         //mengurangi jumlah water jika water > 0
         //throw "Air tidak cukup" jika water 
@@ -55,6 +55,11 @@ class Player{
         //mengembalikan 22
         int render();
         // void cekPosisi(int, int&, int&); //buat cek sekitar look around, mungkin bs ditaruh di kelas lbh atas kalo dibutuhkan
+
+        int getWater();
+
+        long getMoney();
+        List <Product> getInventory();
 };
 
 #endif

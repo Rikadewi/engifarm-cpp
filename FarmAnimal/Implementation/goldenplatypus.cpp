@@ -7,8 +7,8 @@ GoldenPlatypus::GoldenPlatypus(){
 }
 
 //prosedur Bersuara menuliskan suara GoldenPlatypus ke layar
-void GoldenPlatypus::bersuara(){
-	cout << "krrrrrrr..." << endl;
+string GoldenPlatypus::bersuara(){
+	return "krrrrrrr...";
 }
 FarmProduct GoldenPlatypus::getProduct(bool isKill){
 	if (isKill){

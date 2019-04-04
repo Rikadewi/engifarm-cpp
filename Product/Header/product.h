@@ -6,8 +6,8 @@
 
 class Product{
 protected:
-    int harga; //harga dari setiap produk
     int id;
+    int harga;
 public:
     //id 1..6 farmproduct 7..9 sideproduct
     //1 : chickenegg
@@ -19,7 +19,7 @@ public:
     //7 : beefomellete
     //8 : plachicksoup
     //9 : platycowpancake
-    int getHarga(); //getter harga
+    int getHarga();
     int getID(); //getter id
 };
 #endif

@@ -10,7 +10,7 @@ public:
 	//konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 	ChickenJago();
 	//prosedur Bersuara menuliskan suara ChickenJago ke layar
-	void bersuara();
+	string bersuara();
 	FarmProduct kill();
 	FarmProduct getProduct(bool);
 	int getId();

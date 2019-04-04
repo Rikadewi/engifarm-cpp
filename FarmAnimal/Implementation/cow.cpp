@@ -7,9 +7,10 @@ Cow::Cow(){
 }
 
 //prosedur Bersuara menuliskan suara Cow ke layar
-void Cow::bersuara(){
-	cout << "Moooo..." << endl;
+string Cow::bersuara(){
+	return "Moooo...";
 }
+
 FarmProduct Cow::getProduct(bool isKill){
 	if (isKill){
 		CowMeat meat;

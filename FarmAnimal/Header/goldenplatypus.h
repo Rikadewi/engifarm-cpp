@@ -12,10 +12,9 @@ public:
 	//konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 	GoldenPlatypus();
 	//prosedur Bersuara menuliskan suara GoldenPlatypus ke layar
-	void bersuara();
+	string bersuara();
 	FarmProduct getProduct(bool);
-	int getId()
-	;
+	int getId();
 };
 
 #endif

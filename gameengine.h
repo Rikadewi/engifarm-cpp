@@ -7,6 +7,14 @@
 #include "Player/Header/player.h"
 #include "List/list.h"
 #include "Cell/Header/facility.h"
+#include "FarmAnimal/Header/bull.h"
+#include "FarmAnimal/Header/chickenjago.h"
+#include "FarmAnimal/Header/chickenkampung.h"
+#include "FarmAnimal/Header/cow.h"
+#include "FarmAnimal/Header/goldenplatypus.h"
+#include "FarmAnimal/Header/platypus.h"
+
+
 #include <string>
 #define WORLDSIZE 13
 
@@ -24,7 +32,7 @@ class GameEngine{
         //Handler Functions
         void handleMove(int); //1 = atas, 2 = kanan, 3 = bawah, 4 = kiri
         void handleMoveAnimal(int,int);
-        void handleTalk();
+        string handleTalk();
         void handleInteract();
         void handleKill();
         void handleGrow();

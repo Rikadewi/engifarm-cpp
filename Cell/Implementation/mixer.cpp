@@ -1,5 +1,8 @@
 #include "../Header/mixer.h"
 
+Mixer::Mixer(){
+}
+
 int Mixer::render(){
     return 20;
 }

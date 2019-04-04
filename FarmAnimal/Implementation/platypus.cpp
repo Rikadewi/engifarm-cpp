@@ -7,24 +7,30 @@ Platypus::Platypus(){
 }
 
 //prosedur Bersuara menuliskan suara Platypus ke layar
-void Platypus::bersuara(){
-	cout << "krrrrrrr..." << endl;
+string Platypus::bersuara(){
+	return "krrrrrrr...";
 }
 FarmProduct Platypus::getProduct(bool isKill){
-	if (hasProduct){
-		hasProduct = false;
-		int x = rand() % 2;
-		if (x == 0){
-			PlatypusMilk milk;
-			return milk;
+	if (isKill){
+		throw "kamu tidak boleh membunuh seekor platypus";
+	}
+	else
+	{
+		if (hasProduct){
+			hasProduct = false;
+			int x = rand() % 2;
+			if (x == 0){
+				PlatypusMilk milk;
+				return milk;
+			}
+			else{
+				PlatypusEgg egg;
+				return egg;
+			}
 		}
 		else{
-			PlatypusEgg egg;
-			return egg;
+			throw "Platypus ini tidak mempunyai produk saat ini";
 		}
-	}
-	else{
-		throw "Platypus ini tidak mempunyai produk saat ini";
 	}
 }
 int Platypus::getId(){

@@ -1,5 +1,6 @@
 #include "../Header/bull.h"
 
+
 //konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 Bull::Bull(){
 	FarmAnimal::egg = false;
@@ -7,8 +8,8 @@ Bull::Bull(){
 	FarmAnimal::meat = true;
 }
 //prosedur Bersuara menuliskan suara Bull ke layar
-void Bull::bersuara(){
-	cout << "(Manly) Moooo..." << endl;
+string Bull::bersuara(){
+	return "(Manly) Moooo...";
 }
 FarmProduct Bull::getProduct(bool isKill){
 	if (isKill){

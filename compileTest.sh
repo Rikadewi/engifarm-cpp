@@ -1,0 +1,1 @@
+g++ Cell/Implementation/*.cpp Product/Implementation/*.cpp FarmAnimal/Implementation/*.cpp Player/Implementation/*.cpp List/list.h gameengine.cpp Cell/Testing/well_test.cpp -o test -lcunit

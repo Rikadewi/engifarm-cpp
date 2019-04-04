@@ -2,13 +2,13 @@
 
 //konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 ChickenJago::ChickenJago(){
-	FarmAnimal::egg = true;
+	FarmAnimal::egg = false;
 	FarmAnimal::milk = false;
 	FarmAnimal::meat = true;
 }
 //prosedur Bersuara menuliskan suara ChickenJago ke layar
-void ChickenJago::bersuara(){
-	cout << "kukuruyuuuuuk" << endl;
+string ChickenJago::bersuara(){
+	return "kukuruyuuuuuk";
 }
 FarmProduct ChickenJago::getProduct(bool isKill){
 	if (isKill){

@@ -10,7 +10,7 @@ public:
 	//konstruktor mengeset atribut hungry menjadi false dan living_time menjadi default
 	Bull();
 	//prosedur Bersuara menuliskan suara Bull ke layar
-	void bersuara();
+	string bersuara();
 	FarmProduct kill();
 	FarmProduct getProduct(bool);
 	int getId();

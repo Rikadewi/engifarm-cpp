@@ -5,8 +5,8 @@ ChickenKampung::ChickenKampung(){
 	FarmAnimal::milk = false;
 	FarmAnimal::meat = true;
 }
-void ChickenKampung::bersuara(){
-	cout << "pok pok petoook" << endl;
+string ChickenKampung::bersuara(){
+	return "pok pok petoook";
 }
 FarmProduct ChickenKampung::getProduct(bool isKill){
 	if (isKill){
@@ -16,6 +16,7 @@ FarmProduct ChickenKampung::getProduct(bool isKill){
 	else{
 		if (hasProduct){
 			ChickenEgg egg;
+			hasProduct = false;
 			return egg;
 		}
 		else

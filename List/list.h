@@ -42,14 +42,13 @@ class List {
         
         List& operator= (const List<Type>& L){
             delete[] data;
-            List<Type> retList = new List<Type>(L.size);
-            retList.size = L.size;
-            retList.Neff = L.Neff;
-            retList.data = new Type[size];
-            for (int i=0; i<retList.size; i++){
-                retList.data[i] = L.data[i];
+            size = L.size;
+            Neff = L.Neff;
+            data = new Type[size];
+            for (int i=0; i<size; i++){
+                data[i] = L.data[i];
             }
-            return retList;
+            return *this;
         }
 
         //Services
@@ -128,15 +127,15 @@ class List {
         int getNeff(){
             return Neff;
         }
-        // int getSize(){
-        //     return Size;
-        // }
 
         int getFirstIdx(){
             return IdxMin;
         }
         int getLastIdx() {
-            return Neff-1;
+            if(Neff > 0)
+                return Neff-1;
+            else
+                return 0;
         }
 };
 
