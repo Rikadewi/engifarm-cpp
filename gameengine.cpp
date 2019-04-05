@@ -301,6 +301,7 @@ void GameEngine::handleKill(){
         FarmAnimal *temp = world[XPlayer+1][YPlayer]->getAnimal();
         getEngi()->kill(temp);
         world[XPlayer+1][YPlayer]->updateCell(removeAnimal);
+
     }else if (i==3){ //kill animal barat
         FarmAnimal *temp = world[XPlayer][YPlayer-1]->getAnimal();
         getEngi()->kill(temp);

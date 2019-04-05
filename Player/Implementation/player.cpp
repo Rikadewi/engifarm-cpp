@@ -158,6 +158,8 @@ void Player::interact(FarmAnimal& F){
 void Player::kill(FarmAnimal *F){
     if(inventory.getNeff() < MAXBAG){
         inventory.add(F->getProduct(true));
+        cout << "ID ANIMAL yang dibunuh : " << F->getId() << endl;
+        cout << "ID PRODUCT yang didapat : " << F->getProduct(true).getID() << endl;
     }else{
         throw "Inventory penuh";
     }

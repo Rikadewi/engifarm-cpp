@@ -35,7 +35,7 @@ int main(){
     while(!gameOver){
 
         //Clear Screen 
-        system("clear");
+        // system("clear");
         G.printKeadaan(Name);        
         G.printMap();
         std::cout<< "Message : ";
