@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 Player::Player() : water(DEFWATER), money(DEFMONEY){
-
+    
 }
 
 string Player::talk(FarmAnimal *F ){
@@ -156,8 +156,8 @@ void Player::interact(FarmAnimal& F){
 }
 
 void Player::kill(FarmAnimal *F){
-    if(inventory.getSize() < MAXBAG){
-        inventory.add(F.getProduct(true));
+    if(inventory.getNeff() < MAXBAG){
+        inventory.add(F->getProduct(true));
     }else{
         throw "Inventory penuh";
     }

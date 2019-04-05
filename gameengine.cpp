@@ -292,6 +292,7 @@ void GameEngine::handleKill(){
         FarmAnimal *temp = world[XPlayer-1][YPlayer]->getAnimal();
         getEngi()->kill(temp);
         world[XPlayer-1][YPlayer]->updateCell(removeAnimal);
+        
     }else if (i==1){ //kill animal timur
         FarmAnimal *temp = world[XPlayer][YPlayer+1]->getAnimal();
         getEngi()->kill(temp);
@@ -445,7 +446,7 @@ void GameEngine::printKeadaan(string Name){
     cout << "Money : " << getEngi()->getMoney() << endl;
     cout << "Inventory : ";
     List <Product>  productList = getEngi()->getInventory();
-    for(int i = productList.getFirstIdx(); i< productList.getLastIdx(); i++){
+    for(int i = 0; i< productList.getLastIdx(); i++){
         switch (productList.getElmt(i).getID())
         {
             case 1 : cout << "ChickenEgg"; break;

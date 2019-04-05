@@ -89,7 +89,7 @@ int main(){
         
         catch(const char* errorMessage)
         {
-            messasge = errorMessage;
+            message = errorMessage;
         }
         
         
