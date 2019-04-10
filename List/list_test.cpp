@@ -2,6 +2,9 @@
 #include "CUnit/Basic.h"
 #include <sstream>
 #include <cstring>
+#include <Product/Header/farmproduct.h>
+#include <Product/Header/chickenmeat.h>
+#include <Product/Header/platypusmilk.h>
 
 using namespace std;
 
@@ -63,10 +66,8 @@ void removeTest(){
     l.add(2);
     l.add(3);
     int x;
-    l.remove(2, &x);
     CU_ASSERT_EQUAL(l.getElmt(0), 3);
     CU_ASSERT_EQUAL(l.getNeff(), 1);
-    CU_ASSERT_EQUAL(x, 2);
 }
 
 void removeAtTest(){
@@ -74,12 +75,10 @@ void removeAtTest(){
     l.add(2);
     l.add(3);
     l.add(4);
-    int x;
-    l.removeAt(1, &x);
+    l.removeAt(2);
     CU_ASSERT_EQUAL(l.getElmt(0), 2);
-    CU_ASSERT_EQUAL(l.getElmt(1), 4);
+    CU_ASSERT_EQUAL(l.getElmt(1), 3);
     CU_ASSERT_EQUAL(l.getNeff(), 2);
-    CU_ASSERT_EQUAL(x, 3);
 }
 
 void findTest(){

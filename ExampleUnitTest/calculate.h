@@ -1,1 +1,0 @@
-int tambah(int, int);

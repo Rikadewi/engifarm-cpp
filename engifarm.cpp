@@ -27,7 +27,7 @@ int main(){
     bool gameOver = false; 
     string Name = command;
     GameEngine G;
-    string message = "Welcome To Engi's Farm, click HELP for a list of commands";
+    string message = "Welcome To Engi's Farm!";
 
     /**************************
     Looping Utama Main Program
@@ -35,7 +35,7 @@ int main(){
     while(!gameOver){
 
         //Clear Screen 
-        // system("clear");
+        system("clear");
         G.printKeadaan(Name);        
         G.printMap();
         std::cout<< "Message : ";
@@ -83,8 +83,14 @@ int main(){
             else if (command.compare("EXIT") == 0) {
                 gameOver = true;
             }
+            else {
+                message = "Salah command!";
+            }
 
             G.updateGame();
+            if(G.getAnimals()<=0){
+                gameOver = true;
+            }
         }
         
         catch(const char* errorMessage)

@@ -6,7 +6,7 @@
 #include "../../Player/Header/player.h"
 
 enum CellType {land, facility};
-enum UpdateType {makan, grow, readyTruck, removeAnimal, checkAnimal};
+enum UpdateType {makan, grow, readyTruck, removeAnimal, checkAnimal, canMove};
 
 class Cell{
     protected:

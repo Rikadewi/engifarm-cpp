@@ -5,8 +5,8 @@
 void chickenjagoTest(){
     ChickenJago c;
 
-    CU_ASSERT_EQUAL(c.isHungry(), false);
-    CU_ASSERT_EQUAL(c.getLivingTime(), 5);
+    CU_ASSERT_EQUAL(c.isHungry(), true);
+    CU_ASSERT_EQUAL(c.getLivingTime(), default_living_time);
     CU_ASSERT_EQUAL(c.isMilk(), false);
     CU_ASSERT_EQUAL(c.isEgg(), false);
     CU_ASSERT_EQUAL(c.isMeat(), true); 
@@ -46,9 +46,9 @@ void getProductTest(){
 
 void getIdTest(){
     ChickenJago c;
-    CU_ASSERT_EQUAL(c.getId(), 4);
-    c.setHungry(true);
     CU_ASSERT_EQUAL(c.getId(), 3);
+    c.setHungry(false);
+    CU_ASSERT_EQUAL(c.getId(), 4);
 }
 
 int main() {

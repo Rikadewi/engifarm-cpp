@@ -13,6 +13,7 @@
 #include "FarmAnimal/Header/cow.h"
 #include "FarmAnimal/Header/goldenplatypus.h"
 #include "FarmAnimal/Header/platypus.h"
+#include "Product/Header/platypusmilk.h"
 
 
 #include <string>
@@ -24,6 +25,7 @@ class GameEngine{
         int tick;
         int XPlayer;
         int YPlayer;
+        int Animals;
     public:
         GameEngine();
         List<int> lookAround(int,int); //utara , timur, selatan, barat
@@ -49,6 +51,7 @@ class GameEngine{
         //Getter 
         int getXPlayer();
         int getYPlayer();
+        int getAnimals();
         int getID(int,int);
         Player* getEngi();
         FarmAnimal* getAnimalAt(int x, int y);

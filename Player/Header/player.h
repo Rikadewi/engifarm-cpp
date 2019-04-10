@@ -9,8 +9,8 @@
 #include "../../List/list.h"
 #define DEFWATER 10
 #define MAXWATER 20
-#define DEFMONEY 100
-#define MAXMONEY 200
+#define DEFMONEY 0
+#define MAXMONEY 2000000
 #define MAXBAG 10
 
 class Player{
@@ -39,7 +39,7 @@ class Player{
         //throw exception jika animal lapar
         //mendapatkan product jika inventory masih cukup
         //throw "Inventory penuh" jika inventory penuh
-        void interact(FarmAnimal& F); 
+        void interact(FarmAnimal* F); 
         
         //menerima input Farm Animal
         //jika animal tidak lapar, akan mendapatkan prodcut

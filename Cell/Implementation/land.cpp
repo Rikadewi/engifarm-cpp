@@ -7,7 +7,6 @@ Land::Land(bool rumput, FarmAnimal* animal, LandType type){
 }
 
 int Land::render(){
-
     if(getPlayer() == NULL){
         if(getAnimal() == NULL){
             if(type == barn){
@@ -39,7 +38,7 @@ int Land::render(){
     else{
         return 22;
     }
-
+    return -2;
 }
 
 bool Land::isRumput(){
@@ -75,11 +74,17 @@ void Land::updateCell(UpdateType type){
     }
     
     if(type == makan){
+        // cout << "makanpass1\n";
         FarmAnimal* F = getAnimal();
+        // cout << "makanpass2\n";
         if(F != NULL){
             if(isRumput()){
-                F->makan();
+                if (F->isHungry()){
+                    F->makan();
+                    setRumput(false);
+                }
             }
+            // cout << "makanpass4\n";
         }
         return;
     }
@@ -95,10 +100,18 @@ void Land::updateCell(UpdateType type){
         FarmAnimal* F = getAnimal();
         if(F != NULL){
             F->updateLivingTime();
-            if(F->getLivingTime() == 0){
-                delete F;
-                setAnimal(NULL);
+            F->updateHungryTime();
+            if(F->getLivingTime() <= 0){
+                updateCell(removeAnimal);
             }
+        }
+        return;
+    }
+
+    if (type == canMove){
+        FarmAnimal* F = getAnimal();
+        if(F != NULL){
+            F->setMoved(false);
         }
         return;
     }
@@ -109,6 +122,6 @@ void Land::interactCell(){
     FarmAnimal* F = getAnimal();
     Player* P = getPlayer();
     if(F != NULL){
-        P->interact(*F);
+        P->interact(F);
     }
 }

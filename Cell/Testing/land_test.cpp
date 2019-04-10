@@ -9,7 +9,7 @@ void landTest(){
     f = new Cow[1]();
     Land l(true, f, grassLand);
     CU_ASSERT_EQUAL(l.isRumput(), true);
-    CU_ASSERT_EQUAL(l.getAnimal() -> getId(), 6);
+    CU_ASSERT_EQUAL(l.getAnimal() -> getId(), 5);
     CU_ASSERT_EQUAL(l.getType(), grassLand);
 }
 
@@ -17,7 +17,7 @@ void renderTest(){
     FarmAnimal* f;
     f = new Cow[1]();
     Land l(true,f,grassLand);
-    CU_ASSERT_EQUAL(l.render(), 6);
+    CU_ASSERT_EQUAL(l.render(), 5);
 }
 
 int main() {

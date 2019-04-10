@@ -3,8 +3,8 @@
 
 void chickenkampungTest(){
     ChickenKampung c;
-    CU_ASSERT_EQUAL(c.isHungry(), false);
-    CU_ASSERT_EQUAL(c.getLivingTime(), 5);
+    CU_ASSERT_EQUAL(c.isHungry(), true);
+    CU_ASSERT_EQUAL(c.getLivingTime(), default_living_time);
     CU_ASSERT_EQUAL(c.isMilk(), false);
     CU_ASSERT_EQUAL(c.isEgg(), true);
     CU_ASSERT_EQUAL(c.isMeat(), true); 
@@ -23,6 +23,7 @@ void getProductTest(){
     bool isError = false;
     FarmProduct f;
     try{
+        c.setHungry(false);
         f = c.getProduct(true);
         CU_ASSERT_EQUAL(f.getID(), 2);
     }catch(char const* errormsg){
@@ -61,6 +62,7 @@ void getProductTest(){
 
 void getIdTest(){
     ChickenKampung c;
+    c.setHungry(false);
     CU_ASSERT_EQUAL(c.getId(), 2);
     c.setHungry(true);
     CU_ASSERT_EQUAL(c.getId(), 1);

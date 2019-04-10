@@ -11,8 +11,8 @@ void platypusTest() {
     CU_ASSERT_EQUAL(p.isMilk(), true);
     CU_ASSERT_EQUAL(p.isEgg(), true);
     CU_ASSERT_EQUAL(p.isMeat(), false); 
-    CU_ASSERT_EQUAL(p.isHungry(), false);
-    CU_ASSERT_EQUAL(p.getLivingTime(), 5);
+    CU_ASSERT_EQUAL(p.isHungry(), true);
+    CU_ASSERT_EQUAL(p.getLivingTime(), default_living_time);
 }
 
 void bersuaraTest() {

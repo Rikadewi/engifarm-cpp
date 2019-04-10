@@ -4,11 +4,14 @@ int FarmAnimal::jumlah = 0;
 
 //konstruktor FarmAnimal, mengeset hungry dan hasProduct menjadi false, living_time mejadi default, menambah static int jumlah
 FarmAnimal::FarmAnimal(){
-	hungry = false;
+	hungry = true;
 	hasProduct = false;
 	living_time = default_living_time;
+	hungry_time = default_hungry_time;
 	jumlah++;
+	hasMoved = false;
 }
+
 //destruktor FarmAnimal, mengurangi static int jumlah
 FarmAnimal::~FarmAnimal(){
 	jumlah--;
@@ -19,6 +22,8 @@ void FarmAnimal::makan(){
 		living_time = default_living_time;
 		hasProduct = true;
 		setHungry(false);
+		hungry_time = default_hungry_time;
+		
 	}
 }
 //prosedur update dipanggil setiap tick
@@ -39,6 +44,21 @@ void FarmAnimal::setHungry(bool hungry){
 //fungsi boolean isHungry mengembalikan true jika atribut hungry bernilai true
 bool FarmAnimal::isHungry(){
 	return hungry;
+}
+bool FarmAnimal::getMoved(){
+	return hasMoved;
+}
+void FarmAnimal::setMoved(bool moved){
+	hasMoved = moved;
+}
+void FarmAnimal::updateHungryTime(){
+	if(!hungry){
+		hungry_time--;
+		if(hungry_time==0){
+			hungry = true;
+			living_time = default_living_time;
+		}
+	}
 }
 
 void FarmAnimal::updateLivingTime(){

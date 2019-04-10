@@ -10,8 +10,8 @@ void cowTest() {
     CU_ASSERT_EQUAL(b.isMilk(), true);
     CU_ASSERT_EQUAL(b.isEgg(), false);
     CU_ASSERT_EQUAL(b.isMeat(), true); 
-    CU_ASSERT_EQUAL(b.isHungry(), false);
-    CU_ASSERT_EQUAL(b.getLivingTime(), 5);
+    CU_ASSERT_EQUAL(b.isHungry(), true);
+    CU_ASSERT_EQUAL(b.getLivingTime(), default_living_time);
 }
 
 void bersuaraTest() {
@@ -21,24 +21,12 @@ void bersuaraTest() {
 }
 
 void getProductTest(){
-    // Bull b;
-    // FarmProduct f = b.getProduct(true);
-    // bool e = false;
-    // try{
-    //     b.getProduct(false);
-    // }catch (string err){
-    //     if(err == "Bull tidak memiliki susu"){
-    //         e = true;
-    //     }
-    // }
-    // CU_ASSERT_EQUAL(f.getID(), 4);
-    // CU_ASSERT_TRUE(e);
-
     Cow c;
 
     bool isError = false;
     FarmProduct f;
     try{
+        c.setHungry(false);
         f = c.getProduct(true);
         CU_ASSERT_EQUAL(f.getID(), 3);
     }catch(char const* errormsg){
@@ -48,7 +36,6 @@ void getProductTest(){
 
     isError = false;
     try{
-
         c.setHungry(true);
         c.makan();
         f = c.getProduct(false);
@@ -61,7 +48,6 @@ void getProductTest(){
 
     isError = false;
     try{
-
         c.setHungry(false);
         c.makan();
         f = c.getProduct(false);

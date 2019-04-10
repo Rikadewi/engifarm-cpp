@@ -8,7 +8,6 @@ Cell*** GameEngine::getWorld() {
     return world;
 }
 
-
 int GameEngine::getXPlayer(){
     return XPlayer;
 }
@@ -25,6 +24,7 @@ GameEngine::GameEngine(){
     tick = 0;
     XPlayer = 6;
     YPlayer = 6;
+    Animals = 12;
     world = new Cell**[WORLDSIZE];
 
     //Inisialisasi dunia dan set semua petak menjadi graassland berumput
@@ -77,7 +77,6 @@ GameEngine::GameEngine(){
     world[9][2]->setAnimal(new Cow());
     world[10][2] -> setAnimal(new GoldenPlatypus());
     world[11][1] -> setAnimal(new GoldenPlatypus());
-
 }
 
 int GameEngine::look(int i, int j){
@@ -104,11 +103,13 @@ List<int> GameEngine::lookAround(int x, int y){
 
 void GameEngine::handleInteract(){
     //Mendapatkan list yang berisi objek disekitarnya
+    // cout << "pass1\n";
     List<int> around = lookAround(XPlayer,YPlayer);
     bool foundAnimal= false;
     bool foundFacility = false;
     int i=0;
-    while ((!foundAnimal || !foundFacility) && (i<4)){
+    // cout << "pass2\n";
+    while (!foundAnimal && !foundFacility && (i<4)){
         //jika animal
         if(around.getElmt(i)>=1 && around.getElmt(i)<=10){
             foundAnimal = true;
@@ -120,22 +121,43 @@ void GameEngine::handleInteract(){
     }
 
     if (foundAnimal){
-        FarmAnimal* temp = world[XPlayer-1][YPlayer]->getAnimal();
-        getEngi()->interact(*temp);
+        // cout << "Pass3" << endl;
+
+        if (i==0){//interact animal utara    
+            FarmAnimal* temp = world[XPlayer-1][YPlayer]->getAnimal();
+            getEngi()->interact(temp);
+            
+        }else if (i==1){ //interact animal timur
+            FarmAnimal *temp = world[XPlayer][YPlayer+1]->getAnimal();
+            getEngi()->interact(temp);
+        }else if (i==2){ //interact animal selatan
+            FarmAnimal *temp = world[XPlayer+1][YPlayer]->getAnimal();
+            getEngi()->interact(temp);
+
+        }else if (i==3){ //interact animal barat
+            FarmAnimal *temp = world[XPlayer][YPlayer-1]->getAnimal();
+            getEngi()->interact(temp);
+        }
+
+        // FarmAnimal* temp = world[XPlayer-1][YPlayer]->getAnimal();
+        // getEngi()->interact(temp);
+        // cout << temp->getId() << endl;
+        // cout << "Pass4" << endl;
+
     }
 
     if(foundFacility){
+        // cout<< "pass 3" <<endl;
         int id = around.getElmt(i);
         if(around.getElmt(i)==19){//well
             getEngi()->interactWell();
         }else if (around.getElmt(i)==20){//mixer
             getEngi()->interactMixer();
         }else if (around.getElmt(i)==21){//truck
+            // cout<< "pass 4" <<endl;
             getEngi()->interactTruck();
-        }        
+        }    
     }
-    
-
 }
 
 bool moveAnimal(FarmAnimal* f, List<int> around, int i){
@@ -164,32 +186,38 @@ bool moveAnimal(FarmAnimal* f, List<int> around, int i){
 void GameEngine::handleMoveAnimal(int x, int y){
     List <int> around = lookAround(x,y);
     FarmAnimal* f = world[x][y]->getAnimal();
-    bool found = false;
-    int i = 0;
-    while (!found && i<4){
-        int n = rand()%4;
-        if (n==0 && moveAnimal(f,around,0)){//utara (x-1)(y)
-            world[x][y]->setAnimal(NULL);
-            world[x-1][y]->setAnimal(f);
-            found = true;
-        }else if (n==1 && moveAnimal(f,around,1)){ //timur (x)(y+1)
-            world[x][y]->setAnimal(NULL);
-            world[x][y+1]->setAnimal(f);
-            found = true;
-        }else if (n==2 && moveAnimal(f,around,2)){//selatan (x+1)(y)
-            world[x][y]->setAnimal(NULL);
-            world[x+1][y]->setAnimal(f);
-            found = true;
-        }else if (n==3 && moveAnimal(f,around,3)){//barat (x)(y-1)
-            world[x][y]->setAnimal(NULL);
-            world[x][y-1]->setAnimal(f);
-            found = true;
-        }else{
-            i++;
+    if(f!=NULL){
+        if(!f->getMoved()){
+            bool found = false;
+            int i = 0;
+            while (!found && i<4){
+                int n = rand()%4;
+                if (n==0 && moveAnimal(f,around,0)){//utara (x-1)(y)
+                    world[x][y]->setAnimal(NULL);
+                    world[x-1][y]->setAnimal(f);
+                    found = true;
+                }else if (n==1 && moveAnimal(f,around,1)){ //timur (x)(y+1)
+                    world[x][y]->setAnimal(NULL);
+                    world[x][y+1]->setAnimal(f);
+                    found = true;
+                }else if (n==2 && moveAnimal(f,around,2)){//selatan (x+1)(y)
+                    world[x][y]->setAnimal(NULL);
+                    world[x+1][y]->setAnimal(f);
+                    found = true;
+                }else if (n==3 && moveAnimal(f,around,3)){//barat (x)(y-1)
+                    world[x][y]->setAnimal(NULL);
+                    world[x][y-1]->setAnimal(f);
+                    found = true;
+                }else{
+                    i++;
+                }
+            }
+            if (!found){
+                throw "Ada animal yang stuck!";
+            }else{
+                f->setMoved(true);
+            }
         }
-    }
-    if (!found){
-        throw "Tidak ada space";
     }
 }
 
@@ -238,12 +266,8 @@ void GameEngine::handleMove(int n){
     }
 }
 
-
-
-
 void GameEngine::handleGrow(){
     try{
-        getEngi()->grow();
         world[getXPlayer()][getYPlayer()]->updateCell(grow);
     }catch(string s){
         throw "Air tidak cukup";
@@ -318,15 +342,20 @@ int GameEngine::getID(int i,int j){
 void GameEngine::updateGame(){
     tick++;
     //Menggerakan animal
+    Animals = 0;
     for(int i = 0; i<WORLDSIZE; i++){
         for(int j =0 ; j<WORLDSIZE; j++){
             if(getID(i,j) < 13) { //Jika merupakan animal
-                //Gerakan Animal Tsb   
-                handleMoveAnimal(i,j);
+
+                world[i][j]->updateCell(checkAnimal);
                 //Bikin Animal tsb makan
                 world[i][j]->updateCell(makan);
                 //kurangin living time, sekaligus bunuh yang mati
-                world[i][j]->updateCell(checkAnimal);
+                if(world[i][j]->getAnimal() != NULL){
+                    //Gerakan Animal Tsb   
+                    handleMoveAnimal(i,j);
+                }
+                Animals = world[i][j]->getAnimal()->getJumlah();
             }
             else if (getID(i,j) == 21 ){ //Jika merupakan truck
                 //Ubah keadaan trucknya
@@ -334,7 +363,17 @@ void GameEngine::updateGame(){
             }
             //Kasus lain???
         }
-    }       
+    } 
+
+    //mengeset hewan untuk bisa move
+    for(int i = 0; i<WORLDSIZE; i++){
+        for(int j =0 ; j<WORLDSIZE; j++){
+            if(getID(i,j) < 13) { //Jika merupakan animal
+                //Bikin Animal bisa move
+                world[i][j]->updateCell(canMove);
+            }
+        }
+    } 
 }
 
 
@@ -363,7 +402,7 @@ void GameEngine::renderer(int n){
             cout << "\033[30;46m" << "CO" << "\033[0m"; //Print Kotak background Magenta
             break;
         case 7 : // Golden Platypus
-            cout << "\033[33;46m" << "GP" << "\033[0m"; //Print Kotak background Magenta
+            cout << "\033[31;46m" << "GP" << "\033[0m"; //Print Kotak background Magenta
             break;
         case 8 : 
             cout << "\033[30;46m" << "GP" << "\033[0m"; //Print Kotak background Magenta
@@ -381,31 +420,31 @@ void GameEngine::renderer(int n){
             cout << "\033[30;46m" << "BL" << "\033[0m"; //Print Kotak background Magenta teks item
             break;
         case 13 : //Barn
-            cout << "\033[33;43;1m" << 'B' << " \033[0m"; //Print Kotak Background kuning
+            cout << "\033[30;43;1m" << 'B' << " \033[0m"; //Print Kotak Background kuning
             break;
         case 14 :
-            cout << "\033[33;42;1m" << 'B' << " \033[0m"; //Print Kotak background Hijau
+            cout << "\033[30;42;1m" << 'B' << " \033[0m"; //Print Kotak background Hijau
             break;
         case 15 : //Coop
-            cout << "\033[33;43;1m" << 'C' << " \033[0m"; //Print Kotak background Kuning
+            cout << "\033[30;43;1m" << 'C' << " \033[0m"; //Print Kotak background Kuning
             break;
         case 16 :
-            cout << "\033[33;42;1m" << 'C' << " \033[0m"; //Print Kotak background Hijau
+            cout << "\033[30;42;1m" << 'C' << " \033[0m"; //Print Kotak background Hijau
             break;
         case 17: //GrassLand Ga Berumput
-            cout << "\033[42;1m" << 'G' << " \033[0m"; //Print Kotak background Kuning
+            cout << "\033[30;43;1m" << 'G' << " \033[0m"; //Print Kotak background Kuning
             break;
         case 18: //GrassLand Berumput
             cout << "\033[42;1m" << 'G' << " \033[0m"; //Print Kotak background Hijau
             break;
         case 19 : //Well
-            cout << "\033[30;44m" << 'W' << " \033[0m"; //Print Kotak background Hijau
+            cout << "\033[37;44m" << 'W' << " \033[0m"; //Print Kotak background Hijau
             break;
         case 20 : //Mixer
-            cout << "\033[30;44m" << 'M' << " \033[0m"; //Print Kotak background Hijau
+            cout << "\033[37;44m" << 'M' << " \033[0m"; //Print Kotak background Hijau
             break;
         case 21 : //Truck
-            cout << "\033[30;44m" << 'T' << " \033[0m"; //Print Kotak background Hijau
+            cout << "\033[37;44m" << 'T' << " \033[0m"; //Print Kotak background Hijau
             break;
         case 22 : //player
             cout << "\033[31;1;42m" << 'P' << " \033[0m"; //Print Kotak background Hijau
@@ -435,6 +474,42 @@ void GameEngine::printKeterangan(int n){
         case 0:
             cout << "Legend :";
             break;
+        case 1:
+            cout << "";
+            break;
+        case 2:
+            cout << "Hewan Text Hitam: Kenyang | Hewan Text Merah: Lapar";
+            break;
+        case 3:
+            cout << "Land Background Hijau: Ada Rumput | Land Background Kuning: Tidak ada rumput";
+            break;
+        case 4:
+            cout << "P: Player";
+            break;
+        case 5:
+            cout << "W: Well | M: Mixer | T: Truck";
+            break;
+        case 6:
+            cout << "G: GrassLand | C: Coop | B: Barn";
+            break;
+        case 7:
+            cout << "CK: Chicken Kampung";
+            break;
+        case 8:
+            cout << "CJ: Chicken Jago";
+            break;
+        case 9:
+            cout << "CO: Cow";
+            break;
+        case 10:
+            cout << "GP: Golden Platypus";
+            break;
+        case 11:
+            cout << "PL: Platypus";
+            break;
+        case 12:
+            cout << "BL: Bull";
+            break;
         default:
             break;
     }
@@ -445,9 +520,10 @@ void GameEngine::printKeadaan(string Name){
     cout << "Nama Player :" << Name << endl;
     cout << "Water : " << getEngi()->getWater() << endl;
     cout << "Money : " << getEngi()->getMoney() << endl;
+    cout << "Jumlah Animal : " << Animals << endl;
     cout << "Inventory : ";
     List <Product>  productList = getEngi()->getInventory();
-    for(int i = 0; i< productList.getLastIdx(); i++){
+    for(int i = 0; i< productList.getNeff(); i++){
         switch (productList.getElmt(i).getID())
         {
             case 1 : cout << "ChickenEgg"; break;
@@ -470,4 +546,8 @@ void GameEngine::printKeadaan(string Name){
     }
     cout << endl;
 
+}
+
+int GameEngine::getAnimals(){
+    return Animals;
 }

@@ -76,22 +76,16 @@ class List {
             }
         }
 
-        void remove(Type elmt,Type *X){
-            removeAt(find(elmt),X);
+        void remove(Type elmt){
+            removeAt(find(elmt));
         }        
 
-        void removeAt(int idx, Type *X){
-            if (idx == Neff){
-                Neff--;
+        void removeAt(int idx){
+            //MENGGESER SETIAP ELEMENT
+            for(int i=idx; i<getLastIdx(); i++){
+                data[i] = data[i+1];
             }
-            else {
-                *X = data[idx];
-                //MENGGESER SETIAP ELEMENT
-                for(int i=idx; i<getLastIdx(); i++){
-                    data[i] = data[i+1];
-                }
-                Neff--;
-            }
+            Neff--;
         }
 
 
@@ -119,15 +113,12 @@ class List {
         Type getElmt(int i){
             return data[i];
         }
-        
         int getSize(){
             return size;
         }
-
         int getNeff(){
             return Neff;
         }
-
         int getFirstIdx(){
             return IdxMin;
         }

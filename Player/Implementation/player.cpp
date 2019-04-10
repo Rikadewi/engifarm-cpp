@@ -1,12 +1,13 @@
 //File: player.cpp
 #include "../Header/player.h"
+#include "../../Product/Header/cowmeat.h"
+#include "../../Product/Header/chickenegg.h"
 #include <string>
 #include <sstream>
 Player::Player() : water(DEFWATER), money(DEFMONEY){
-    
 }
 
-string Player::talk(FarmAnimal *F ){
+string Player::talk(FarmAnimal *F){
      return F->bersuara();
 }
 
@@ -19,6 +20,7 @@ void Player::interactWell(){
 }
 
 void Player::interactMixer(){
+    cout << "mix1\n";
     bool hasMix = false;
 
     //mixer jenis 1 (chcken egg, cow meat) = beef omellete
@@ -47,13 +49,13 @@ void Player::interactMixer(){
 
     if(found1 && found2){
         hasMix = true;
-        Product* temp;
-        inventory.removeAt(idx1, temp);
-        inventory.removeAt(idx2, temp);
+        inventory.removeAt(idx1);
+        inventory.removeAt(idx2);
         SideProduct beefomellete = BeefOmellete();
         inventory.add(beefomellete);
     }
 
+    //jika belom mix
     if(!hasMix){
         //mixer jenis 2 (platypus] egg, cow milk) = platypus pancake
         bool found1 = false;
@@ -81,14 +83,14 @@ void Player::interactMixer(){
 
         if(found1 && found2){
             hasMix = true;
-            Product* temp;
-            inventory.removeAt(idx1, temp);
-            inventory.removeAt(idx2, temp);
+            inventory.removeAt(idx1);
+            inventory.removeAt(idx2);
             SideProduct platycowpancake = PlatycowPancake();
             inventory.add(platycowpancake);
         }
     }
 
+    //jika belom mix
     if(!hasMix){
         //mixer jenis 3 (platypus milk, chicken meat) = plachick soup
         bool found1 = false;
@@ -116,9 +118,8 @@ void Player::interactMixer(){
 
         if(found1 && found2){
             hasMix = true;
-            Product* temp;
-            inventory.removeAt(idx1, temp);
-            inventory.removeAt(idx2, temp);
+            inventory.removeAt(idx1);
+            inventory.removeAt(idx2);
             SideProduct plachicksoup = PlachickSoup();
             inventory.add(plachicksoup);
         }
@@ -127,25 +128,26 @@ void Player::interactMixer(){
 
 void Player::interactTruck(){
     while(!inventory.isEmpty()){
-        Product* temp;
-        inventory.removeAt(inventory.getLastIdx(), temp);
-        if(temp->getHarga() + money > MAXMONEY){
+
+             
+        if(inventory.getElmt(inventory.getLastIdx()).getHarga() + money > MAXMONEY){
             money = MAXMONEY;
         }else{
-            money +=temp->getHarga();
+            money +=inventory.getElmt(inventory.getLastIdx()).getHarga();
         }
-        delete temp;
+        inventory.removeAt(inventory.getLastIdx());   
     }
 }
 
 
-void Player::interact(FarmAnimal& F){
-    if(F.isMeat()&& (!F.isEgg() ||! F.isMilk())){
-        throw "Tidak bisa berinteraksi dengan meat producing animal";
+void Player::interact(FarmAnimal* F){
+    cout << F->getId() <<endl;
+    if(F->isMeat() && !F->isEgg() &&  !F->isMilk()){
+        throw "Tidak bisa berinteraksi dengan animal yang meat producing only";
     }else{
-        if(inventory.getSize() < MAXBAG){
+        if(inventory.getNeff() < MAXBAG){
             try{
-                inventory.add(F.getProduct(false));
+                inventory.add(F->getProduct(false));
             }catch (string s){
                 throw s;
             }
@@ -158,8 +160,6 @@ void Player::interact(FarmAnimal& F){
 void Player::kill(FarmAnimal *F){
     if(inventory.getNeff() < MAXBAG){
         inventory.add(F->getProduct(true));
-        cout << "ID ANIMAL yang dibunuh : " << F->getId() << endl;
-        cout << "ID PRODUCT yang didapat : " << F->getProduct(true).getID() << endl;
     }else{
         throw "Inventory penuh";
     }
