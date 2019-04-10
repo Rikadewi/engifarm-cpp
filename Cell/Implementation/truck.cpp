@@ -13,7 +13,7 @@ int Truck::render(){
 }
 
 bool Truck::isAvailable(){
-    return (ready==0);
+    return (ready<=0);
 }
 
 void Truck::updateCell(UpdateType type){
@@ -26,7 +26,6 @@ void Truck::updateCell(UpdateType type){
 
 void Truck::interactCell(){
     if(isAvailable()){
-        engi->interactTruck();
         setNotReady();
     }else{
         throw "Truck tidak ada";

@@ -108,6 +108,9 @@ void GameEngine::handleInteract(){
     bool foundAnimal= false;
     bool foundFacility = false;
     int i=0;
+    int pos;
+    int x = XPlayer;
+    int y = YPlayer;
     // cout << "pass2\n";
     while (!foundAnimal && !foundFacility && (i<4)){
         //jika animal
@@ -115,6 +118,7 @@ void GameEngine::handleInteract(){
             foundAnimal = true;
         }else if (around.getElmt(i)>=19 && around.getElmt(i)<=21){ //facility
             foundFacility=true;
+            pos = i;
         }else{
             i++;
         }
@@ -155,7 +159,18 @@ void GameEngine::handleInteract(){
             getEngi()->interactMixer();
         }else if (around.getElmt(i)==21){//truck
             // cout<< "pass 4" <<endl;
-            getEngi()->interactTruck();
+            
+            if(pos == 0) x = XPlayer -1;
+            if(pos == 1) y = YPlayer +1;
+            if(pos == 2) x = XPlayer +1;
+            if(pos == 3) y = YPlayer -1;
+            try{
+                world[x][y]->interactCell();    
+                getEngi()->interactTruck();
+            }catch(string s){
+                throw s;
+            }
+            
         }    
     }
 }
