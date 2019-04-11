@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <cstring>
 
-#define default_living_time 5
+#define default_living_time 10
 #define default_hungry_time 5
 
 using namespace std;

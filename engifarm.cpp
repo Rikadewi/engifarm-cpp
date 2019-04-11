@@ -102,5 +102,12 @@ int main(){
         
         
     }
+    if(gameOver){
+        cout<<endl;
+        cout << "Seluruh hewan telah mati!" <<endl;
+        cout << "Game Over" <<endl;
+        cout << "============================" <<endl;
+        cout << "Thank you for playing !!!" <<endl;
+    }
     return 0;
 }
